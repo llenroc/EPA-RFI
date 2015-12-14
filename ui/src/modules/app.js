@@ -26,5 +26,5 @@ var app = angular.module('epa', [
 require('./api')(app);
 require('./components')(app);
 require('./pages')(app);
-//require('./services')(app);
+require('./services')(app);
 require('./routing')(app);
