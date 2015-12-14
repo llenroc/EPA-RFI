@@ -1,0 +1,25 @@
+notifications:
+  slack:
+    secure: ZuA+A2VVlyspTjgpTH9TZaa4EneFGNr1GsoIK0tAkUmtkebaSle9DM/f9zJ4f7fWWrNsZcQ5cZmPy1lNDdqDV/ISUPAuoviY61K73Bb9vS0P6BvcsGIFWSL/mT3+BPOnPuTmnb8xuIAlAHqiKqf2dofaori6hd83A2/iHN77++kkXaa+pM5dupfH/C2DnbcdUcrmtRMPjpEyy05PZ1imGpvKyxV7QfwOf7x3huRH6LSNA4U5GFbYG24LgbpW/KIpSstNEbOSwwsi/lNGnS+msbGm9ctzohB9mBEcj82HLIZEFqJwY/7A2Xz0oo7mKkdTYx3HmcDTFB6xvCun8eOvH5aB5e7tU4PgZ0x55UdwDO720Sgiu+im/vlhQbjJbzIK8OLf70PhHcXQ6Ow7lfcUsHqmHklzLtlv5dgJtGlp9QCQKJyrkXy3YIxT+zdXzKRs1uMes4GYfEMuUxLDWoMPPqPixMl2PpqwivwfgT+Nx9azZYRteRY0TAMcvPz9xLjv51IFxgj0nRBcGWF9YtaOz/VAngNpx5H72gRzZFK2nFSJg0Sz/MK2tTM90+LCYR5/bPBsJSMOIGnaiIJq2KShMwjJvnc4qB2Q1GE9YJm80K6UOOiiQE+F5+7JZJ7MZcEPNo6359MSDIgY2YBttTGoBpzGT+bpryot5hakU9iR61U=
+language: node_js
+install:
+# project build/setup here
+- cd $TRAVIS_BUILD_DIR/ui
+- npm install
+- npm run dist
+#- cd $TRAVIS_BUILD_DIR/server
+#- npm install
+script:
+# run tests here
+- cd $TRAVIS_BUILD_DIR/ui
+#- cd $TRAVIS_BUILD_DIR/server
+sudo: required
+deploy:
+  edge: true
+  provider: cloudfoundry
+  api: https://api.run.pivotal.io
+  username: kyle.linden@appliedis.com
+  password:
+    secure: UhZ7KxjaXe5ZIL7xs2xhIkWWylmDyPU2uVGcRO4lDbYU4rLrCpm0ubUS9NUwkbWdyzQQZwHoHv8llk0y+8KGTP1CY0c9JKEb23rd10fvWZVYcUatA1Uj+iXSUlD1DjuSv98aZgFr0wIpctUxJg9/uRSO4573YNCar2JPjHpI9vsxV8R0AcKhv0Ikq4HuV6Qn1cRQpWWrfZjlYY/+DlDcllCwxS8g3t8PIUXvm9QHqcuyQXrXPcXOLk5yhXKkiszcMibEuF0Fsscef+SJZ1TPfgggsam8zbP9ARvCHtCzjoI+RogTcAYAEAWvtGewethPvvOygnL1UR0fkmApoGpRQZ+Legu8v07FVgSjX8AvHsltCPSfnyUVp7siroVUew3ClX2ac4fhmd9egt7YDD4FUPCwQc6t8DPYY0kkNPteMOJQwEUmP9NfXieVO1tiDteA2Eg3nC4tYDjDRZwYV4UPsNLwzliBqwFWgQ+0xmsiVFXxi3WhLfOMmfsztVXeWAuKmRdIH9zhHrMj48GktEcdPFMGhybpzepgCVWe7MosupNisb6b86mRYGb47cuLISc9nmMr+p/FezRkiRezfxg1Vwhfd3jhSt0m9h9kPwySTPqjb0xSczzCOmkdnglNfBqBES9Yy3dyfyJQvvojYKGOv/GpTW65RgV+nQSnQmtoU70=
+  organization: AIS
+  space: development

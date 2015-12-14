@@ -1,0 +1,10 @@
+---
+applications:
+#- name: EPA-server
+#  buildpack: https://github.com/cloudfoundry/nodejs-buildpack
+#  path: ./server
+#  env:
+#    NODE_ENV: production
+- name: EPA-ui
+  buildpack: https://github.com/cloudfoundry/staticfile-buildpack
+  path: ./ui/dist
