@@ -7,6 +7,7 @@
   "eqeqeq": true,
   "immed": true,
   "indent": 4,
+  "jasmine": true,
   "latedef": true,
   "newcap": true,
   "noarg": true,
@@ -21,5 +22,7 @@
   "white": true,
   "validthis": true,
   "globals": {
+      "angular": true,
+      "inject": true
   }
 }
