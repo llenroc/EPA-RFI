@@ -2,6 +2,8 @@ notifications:
   slack:
     secure: ZuA+A2VVlyspTjgpTH9TZaa4EneFGNr1GsoIK0tAkUmtkebaSle9DM/f9zJ4f7fWWrNsZcQ5cZmPy1lNDdqDV/ISUPAuoviY61K73Bb9vS0P6BvcsGIFWSL/mT3+BPOnPuTmnb8xuIAlAHqiKqf2dofaori6hd83A2/iHN77++kkXaa+pM5dupfH/C2DnbcdUcrmtRMPjpEyy05PZ1imGpvKyxV7QfwOf7x3huRH6LSNA4U5GFbYG24LgbpW/KIpSstNEbOSwwsi/lNGnS+msbGm9ctzohB9mBEcj82HLIZEFqJwY/7A2Xz0oo7mKkdTYx3HmcDTFB6xvCun8eOvH5aB5e7tU4PgZ0x55UdwDO720Sgiu+im/vlhQbjJbzIK8OLf70PhHcXQ6Ow7lfcUsHqmHklzLtlv5dgJtGlp9QCQKJyrkXy3YIxT+zdXzKRs1uMes4GYfEMuUxLDWoMPPqPixMl2PpqwivwfgT+Nx9azZYRteRY0TAMcvPz9xLjv51IFxgj0nRBcGWF9YtaOz/VAngNpx5H72gRzZFK2nFSJg0Sz/MK2tTM90+LCYR5/bPBsJSMOIGnaiIJq2KShMwjJvnc4qB2Q1GE9YJm80K6UOOiiQE+F5+7JZJ7MZcEPNo6359MSDIgY2YBttTGoBpzGT+bpryot5hakU9iR61U=
 language: node_js
+node_js:
+    - "4.1.1"
 install:
 - cd $TRAVIS_BUILD_DIR/ui
 - npm install
