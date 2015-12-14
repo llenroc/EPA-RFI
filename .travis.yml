@@ -15,7 +15,6 @@ script:
 #- cd $TRAVIS_BUILD_DIR/server
 sudo: required
 deploy:
-  edge: true
   provider: cloudfoundry
   api: https://api.run.pivotal.io
   username: kyle.linden@appliedis.com
