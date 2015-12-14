@@ -8,6 +8,10 @@ module.exports = function(ngModule) {
              controller: 'epaMainPageController',
             templateUrl: 'modules/pages/epaMainPageTemplate.html'
         })
+        .when('/settings', {
+             controller: 'epaSettingsPageController',
+            templateUrl: 'modules/pages/epaSettingsPageTemplate.html'
+        })
         .otherwise({
             redirectTo: '/'
         });
