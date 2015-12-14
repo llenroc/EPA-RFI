@@ -2,10 +2,10 @@
 
 module.exports = function(ngModule) {
 
-    ngModule.controller('eaMainPageController', function() {
+    ngModule.controller('epaMainPageController', function() {
 
         var initialize = function() {
-            console.log('eaMainPageController initializing...');
+            console.log('epaMainPageController initializing...');
         };
         initialize();
     });

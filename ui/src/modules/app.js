@@ -14,7 +14,7 @@ import ngSanitize from 'angular-sanitize';
 
 
 // Application
-var app = angular.module('ea', [
+var app = angular.module('epa', [
     ngAnimate,
     ngCookies,
     ngResource,
@@ -26,5 +26,5 @@ var app = angular.module('ea', [
 require('./api')(app);
 require('./components')(app);
 require('./pages')(app);
-require('./services')(app);
+//require('./services')(app);
 require('./routing')(app);

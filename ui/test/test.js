@@ -9,3 +9,4 @@ describe('Test Scaffolding', function() {
     });
 
 });
+

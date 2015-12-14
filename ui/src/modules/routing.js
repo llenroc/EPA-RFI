@@ -5,8 +5,8 @@ module.exports = function(ngModule) {
     ngModule.config(function($routeProvider) {
         $routeProvider
         .when('/', {
-             controller: 'eaMainPageController',
-            templateUrl: 'modules/pages/eaMainPageTemplate.html'
+             controller: 'epaMainPageController',
+            templateUrl: 'modules/pages/epaMainPageTemplate.html'
         })
         .otherwise({
             redirectTo: '/'
