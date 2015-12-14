@@ -5,7 +5,7 @@
   "author": "Applied Information Sciences",
   "scripts": {
     "clean": "rimraf \"src/styles/*\" \"src/scripts/*\"",
-    "dist": "gulp dist",
+    "dist": "npm run clean && npm run js && npm run sass && gulp dist",
     "js": "webpack -d --progress --colors",
     "sass": "node-sass --include-path src/sass --include-path node_modules/bootstrap-sass/assets/stylesheets --include-path node_modules/bootstrap-slider/dist/css --include-path node_modules/font-awesome/scss src/sass/main.scss src/styles/site.css",
     "postsass": "postcss -r -c postcss.config.json src/styles/site.css && cssmin src/styles/site.css > src/styles/site.min.css",
