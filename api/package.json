@@ -5,7 +5,7 @@
   "description": "Backend web services for EPA RFI response by Applied Information Sciences",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp test"
   },
   "repository": {
     "type": "git",

@@ -8,9 +8,12 @@ install:
 - cd $TRAVIS_BUILD_DIR/ui
 - npm install
 - npm run dist
+- cd $TRAVIS_BUILD_DIR/api
+- npm install
 script:
 # tests go here
-- cd $TRAVIS_BUILD_DIR
+- cd $TRAVIS_BUILD_DIR/api
+- npm test
 sudo: required
 deploy:
   provider: cloudfoundry
