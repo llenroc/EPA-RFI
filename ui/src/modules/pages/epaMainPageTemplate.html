@@ -15,4 +15,16 @@
         </p>
     </div>
 
+    <div ng-show="AirQualityService.data">
+        <p>
+            Quality: {{ AirQualityService.data.quality.description }}
+        </p>
+        <p>
+            Recommended: {{ AirQualityService.data.activities.recommended }}
+        </p>
+        <p>
+            Hazardous: {{ AirQualityService.data.activities.hazardous }}
+        </p>
+    </div>
+
 </div><!-- mainpage -->

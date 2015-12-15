@@ -23,7 +23,6 @@ var app = angular.module('epa', [
 ]);
 
 // Load Application Components
-require('./api')(app);
 require('./components')(app);
 require('./pages')(app);
 require('./services')(app);
