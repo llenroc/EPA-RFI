@@ -2,19 +2,12 @@
 
 module.exports = function(ngModule) {
 
-    ngModule.controller('epaMainPageController', function($scope, SettingsService) {
+    ngModule.controller('epaMainPageController', function($scope, GeoService) {
 
         var initialize = function() {
             console.log('epaMainPageController initializing...');
-
-            SettingsService.getLocation().then(function(position) {
-                if (typeof position !== 'undefined') {
-                    $scope.position = position;
-                }
-                else {
-                    // redirect to settings...
-                }
-            });
+            $scope.GeoService = GeoService;
+            GeoService.updateLocation();
         };
         initialize();
     });

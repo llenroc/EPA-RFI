@@ -3,31 +3,46 @@ var moment = require('moment');
 
 module.exports = function(ngModule) {
     
-    ngModule.service('SettingsService', function($q) {
+    ngModule.service('GeoService', function($rootScope) {
         
-        this.settings = {};
+        this.loading = false;
+        this.position = null;
 
-        this.getLocation = function() {
-            var deferred = $q.defer();
+        this.updateLocation = function() {
 
             var startTime = moment();
             var timeout = 10 * 1000; // convert to seconds
+
+            var svc = this;
 
             var gotLocation = function(position) {
                 var endTime = moment();
                 var duration = moment(endTime.diff(startTime)).format('mm:ss:SSS');
                 console.log('SettingsService.getLocation() took ' + duration);
-                deferred.resolve(position);
+                svc.position = {
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude
+                };
+                if (!$rootScope.$$phase) {
+                    $rootScope.$apply();
+                }
+                svc.loading = false;
             };
             
             var noLocation = function() {
                 var endTime = moment();
                 var duration = moment(endTime.diff(startTime)).format('mm:ss:SSS');
                 console.log('SettingsService.getLocation() (no position) took ' + duration);
-                deferred.resolve(null);
+                svc.loading = false;
+                // should we do this? geo might be down only temporarily...
+                svc.position = null; 
+                if (!$rootScope.$$phase) {
+                    $rootScope.$apply();
+                }
             };
 
             if (navigator.geolocation) {
+                this.loading = true;
                 navigator.geolocation.getCurrentPosition(
                     gotLocation, 
                     noLocation, 
@@ -35,11 +50,10 @@ module.exports = function(ngModule) {
                 );
             }
             else {
-                console.log('Browser does not support geolocation')
-                deferred.resolve(null);
+                console.log('Browser does not support geolocation');
+                this.loading = false;
             }
 
-            return deferred.promise;
         }; // getLocation
     });
 

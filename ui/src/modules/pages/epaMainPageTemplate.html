@@ -2,9 +2,17 @@
 
     <h1>EPA RFI Prototype</h1>
 
-    <p ng-show="position">
-        {{ position.coords.latitude }},
-        {{ position.coords.longitude }}
-    </p>
+    <div ng-hide="GeoService.position">
+        <svg class="icon spinner"><use xlink:href="#spinner"></use></svg>
+    </div>
+
+    <div ng-show="GeoService.position">
+        <p>
+            Latitude: {{ GeoService.position.latitude }}
+        </p>
+        <p>
+            Longitude: {{ GeoService.position.longitude }}
+        </p>
+    </div>
 
 </div><!-- mainpage -->
