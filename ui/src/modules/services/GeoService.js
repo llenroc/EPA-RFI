@@ -5,6 +5,7 @@ module.exports = function(ngModule) {
     
     ngModule.service('GeoService', function($rootScope) {
         
+        this.supported = false;
         this.loading = false;
         this.position = null;
 
@@ -44,6 +45,7 @@ module.exports = function(ngModule) {
             };
 
             if (navigator.geolocation) {
+                this.supported = true;
                 this.loading = true;
                 navigator.geolocation.getCurrentPosition(
                     gotLocation, 
@@ -53,6 +55,7 @@ module.exports = function(ngModule) {
             }
             else {
                 console.log('Browser does not support geolocation');
+                this.supported = false;
                 this.loading = false;
             }
 
