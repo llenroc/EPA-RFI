@@ -2,7 +2,7 @@
 
     <h1>EPA RFI Prototype</h1>
 
-    <div ng-hide="GeoService.position">
+    <div ng-show="GeoService.loading">
         <svg class="icon spinner"><use xlink:href="#spinner"></use></svg>
     </div>
 

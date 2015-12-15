@@ -23,10 +23,11 @@ module.exports = function(ngModule) {
                     latitude: position.coords.latitude,
                     longitude: position.coords.longitude
                 };
+                svc.loading = false;
+
                 if (!$rootScope.$$phase) {
                     $rootScope.$apply();
                 }
-                svc.loading = false;
             };
             
             var noLocation = function() {
@@ -35,7 +36,8 @@ module.exports = function(ngModule) {
                 console.log('SettingsService.getLocation() (no position) took ' + duration);
                 svc.loading = false;
                 // should we do this? geo might be down only temporarily...
-                svc.position = null; 
+                svc.position = null;
+
                 if (!$rootScope.$$phase) {
                     $rootScope.$apply();
                 }
