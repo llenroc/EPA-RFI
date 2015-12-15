@@ -1,6 +1,5 @@
 'use strict';
 
-var _ = require('lodash');
 var request = require('request');
 var config = require('../config');
 
@@ -13,10 +12,29 @@ function AirQualityService() {
             var body = JSON.parse(bodyRaw);
 
             if (body) {
-                // TODO: Add wrapper around AirNow API
+                if (body.length > 0) {
+                    var aqJson = body[0];
 
-                // Grab first result and return.
-                callback(null, body[0])
+                    // Grab first result and return formatted as desired JSON format.
+                    var airQualityResponse = {
+                        quality: { value: aqJson.Category.Number, description: aqJson.Category.Name },
+                        details:
+                        {
+                            updated: aqJson.DateObserved + (aqJson.HourObserved < 10 ? '0' + aqJson.HourObserved: aqJson.HourObserved) + ':00 ' + aqJson.LocalTimeZone,
+                            location: aqJson.ReportingArea + ', ' + aqJson.StateCode
+                        },
+                        activities: {
+                            recommended: [ 'walking', 'running', 'hiding' ],
+                            hazardous: [ 'mowing', 'trimming', 'gardening' ]
+                        }
+                    };
+
+                    callback(null, airQualityResponse);
+                }
+                else {
+                    // If we have no results return null.
+                    callback(null, null);
+                }
             }
             else {
                 callback('Missing JSON body in AirNow response.')
@@ -28,21 +46,15 @@ function AirQualityService() {
     };
 
     pub.getAirQualityByLatLon = function(distance, lat, lon, callback) {
-        if(lat >= -90 && lat <= 90 &&
-            lon >= -180 && lon <= 180)
-        {
-            var format = 'application/json';
+        var format = 'application/json';
 
-            var apiUrl = config.epaApi.baseUrl + '/aq/observation/latLong/current/?API_KEY='
-                + config.epaApi.apiKey +
-                '&latitude=' + lat + '&longitude=' + lon +
-                '&distance=' + distance + '&format=' + format;
-            request(apiUrl, function(error, response, bodyRaw) {
-                extractAirQuality(error, response, bodyRaw, callback);
-            });
-        }
-        else
-            callback(null, 'Latitude or Longitude values are out of bounds.');
+        var apiUrl = config.epaApi.baseUrl + '/aq/observation/latLong/current/?API_KEY='
+            + config.epaApi.apiKey +
+            '&latitude=' + lat + '&longitude=' + lon +
+            '&distance=' + distance + '&format=' + format;
+        request(apiUrl, function(error, response, bodyRaw) {
+            extractAirQuality(error, response, bodyRaw, callback);
+        });
     };
 
     pub.getAirQualityByZipCode = function(distance, zipCode, callback) {
@@ -56,7 +68,6 @@ function AirQualityService() {
             extractAirQuality(error, response, bodyRaw, callback);
         });
     };
-
 
     return pub;
 }

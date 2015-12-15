@@ -1,11 +1,10 @@
 'use strict';
 
 var airQualityService = require('../../services/airQualityService')();
+var config = require('../../config');
 
-var _ = require('lodash');
 var path = require('path');
 var fs = require('fs');
-var config = require('../../config');
 var nock = require('nock');
 var should = require('should');
 
@@ -17,13 +16,9 @@ describe('UserService', function() {
     });
 
     it('should retrieve air quality by lat lon', function(done) {
-        var distance = 100,
-            lat = 34,
-            lon = -114;
-
         var response_data = path.resolve('test/data/airnow_single.json');
 
-        var apiMock = nock(config.epaApi.baseUrl)
+        nock(config.epaApi.baseUrl)
             .get('/aq/observation/latLong/current/')
             .query(true)
             .reply(200, function(uri, requestBody) {
@@ -33,21 +28,17 @@ describe('UserService', function() {
         // Act
         airQualityService.getAirQualityByLatLon(100, 34, -114, function(err, data) {
             // Assert
-            data.Category.Number.should.equal(1);
-            data.Category.Name.should.equal('Good');
+            data.quality.value.should.equal(1);
+            data.quality.description.should.equal('Good');
 
             done();
         });
     });
 
     it('should retrieve air quality by zip code', function(done) {
-        var distance = 100,
-            lat = 34,
-            lon = -114;
-
         var response_data = path.resolve('test/data/airnow_single.json');
 
-        var apiMock = nock(config.epaApi.baseUrl)
+        nock(config.epaApi.baseUrl)
             .get('/aq/observation/zipCode/current/')
             .query(true)
             .reply(200, function(uri, requestBody) {
@@ -57,8 +48,8 @@ describe('UserService', function() {
         // Act
         airQualityService.getAirQualityByZipCode(100, 20002, function(err, data) {
             // Assert
-            data.Category.Number.should.equal(1);
-            data.Category.Name.should.equal('Good');
+            data.quality.value.should.equal(1);
+            data.quality.description.should.equal('Good');
 
             done();
         });

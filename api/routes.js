@@ -11,12 +11,12 @@ module.exports = [
     },
     {
         method: 'GET',
-        path: '/api/air-quality/{distance}/{lat}/{lon}',
+        path: '/api/air-quality/lat-lon/{distance}/{latitude}/{longitude}',
         config: AirQuality.getQualityByLatLon
     },
     {
         method: 'GET',
-        path: '/api/air-quality/{distance}/{zipCode}',
+        path: '/api/air-quality/zip-code/{distance}/{zipCode}',
         config: AirQuality.getQualityByZipCode
     }
 ];
