@@ -15,6 +15,8 @@ script:
 - cd $TRAVIS_BUILD_DIR/api
 - npm test
 sudo: required
+before_deploy:
+- cd $TRAVIS_BUILD_DIR
 deploy:
   provider: cloudfoundry
   api: https://api.run.pivotal.io
