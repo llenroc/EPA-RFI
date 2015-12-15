@@ -1,5 +1,6 @@
 node_modules
 npm-debug.log
+newrelic_agent.log
 dist
 bower_components
 reports

@@ -1,0 +1,34 @@
+{
+  "name": "EPA-RFI-server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Backend web services for EPA RFI response by Applied Information Sciences",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AppliedIS/EPA-RFI"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://github.com/AppliedIS/EPA-RFI",
+  "dependencies": {
+    "hapi": "^9.3.1",
+    "hapi-require-https": "^2.0.0",
+    "joi": "^6.4.3",
+    "lodash": "^3.9.3",
+    "newrelic": "^1.20.2",
+    "randomstring": "^1.0.6",
+    "request": "^2.58.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-mocha": "^2.1.2",
+    "gulp-nodemon": "^2.0.3",
+    "mocha": "^2.2.5",
+    "nock": "^3.4.0",
+    "should": "^7.0.1"
+  }
+}

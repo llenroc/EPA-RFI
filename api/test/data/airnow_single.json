@@ -1,0 +1,17 @@
+[
+  {
+    "DateObserved": "2015-12-14 ",
+    "HourObserved": 16,
+    "LocalTimeZone": "CST",
+    "ReportingArea": "San Antonio",
+    "StateCode": "TX",
+    "Latitude": 29.417,
+    "Longitude": -98.484,
+    "ParameterName": "O3",
+    "AQI": 34,
+    "Category": {
+      "Number": 1,
+      "Name": "Good"
+    }
+  }
+]
