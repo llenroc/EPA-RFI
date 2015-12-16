@@ -1,8 +1,11 @@
 FROM mdillon/postgis
+MAINTAINER Jonathan Meyer <jonathan.meyer@appliedis.com>
 
-USER postgres
-ADD init-geocoder.sh
-ADD init-tiger.sql
+# Add in dependencies for extracting tiger geocoder data
+RUN apt-get -y update && apt-get -y install unzip wget
+
+RUN mkdir -p /tmp/
+ADD * /tmp/
 
 
 

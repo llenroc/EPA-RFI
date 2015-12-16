@@ -1,7 +1,5 @@
 CREATE EXTENSION postgis;
 CREATE EXTENSION fuzzystrmatch;
---this one is optional if you want to use the rules based standardizer (pagc_normalize_address)
-CREATE EXTENSION address_standardizer;
 CREATE EXTENSION postgis_tiger_geocoder;
 
 SELECT na.address, na.streetname,na.streettypeabbrev, na.zip
@@ -14,10 +12,10 @@ SELECT 'ais', declare_sect, pgbin, wget, unzip_command, psql, path_sep,
   FROM tiger.loader_platform
   WHERE os = 'sh';
 
-SELECT Loader_Generate_Nation_Script('ais');
+--SELECT Loader_Generate_Nation_Script('ais');
 
 -- Full state list
 --SELECT Loader_Generate_Script(ARRAY['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL','IN','IA','KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VT','VA','WA','WV','WI','WY'], 'ais');
 
 -- Testing using OH only.
-SELECT Loader_Generate_Script(ARRAY['OH'], 'ais');
+--SELECT Loader_Generate_Script(ARRAY['OH'], 'ais');
