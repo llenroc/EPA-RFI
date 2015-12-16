@@ -1,2 +1,73 @@
 
-<h1>Settings</h1>
+<div class="settingspage">
+    
+    <div class="container-fluid">
+        
+        <div class="row">
+            
+            <div class="col-xs-12">
+                <h2><i class="glyphicon glyphicon-map-marker"></i> Locations</h2>
+            </div>
+
+        </div>
+
+        <!-- location -->
+        <div class="row settings__location">
+            <div class="col-xs-1 right">
+                <!-- i class="glyphicon glyphicon-ok"></i -->
+                <div class="settings__picker" ng-click="">
+                    <svg class="active"><use xlink:href="#icon-checkmark"></use></svg>
+                </div>
+
+            </div>
+            
+            <div class="col-xs-9">
+                <span class="settings__name">
+                    Current
+                </span>
+                <span class="settings__coords">
+                    39.9331, -84.1230
+                </span>
+            </div>
+            <div class="col-xs-2">
+                <i class="glyphicon glyphicon-remove"></i>
+            </div>
+        </div><!-- location row -->
+        
+        <!-- location -->
+        <div class="row settings__location">
+            <div class="col-xs-1 right">
+                <!-- i class="glyphicon glyphicon-ok"></i -->
+                <div class="settings__picker" ng-click="">
+                    <svg class=""><use xlink:href="#icon-checkmark"></use></svg>
+                </div>
+
+            </div>
+            
+            <div class="col-xs-9">
+                <span class="settings__name">
+                    Beavercreek, Ohio
+                </span>
+                <span class="settings__coords">
+                    45431
+                </span>
+            </div>
+            <div class="col-xs-2">
+                <i class="glyphicon glyphicon-remove"></i>
+            </div>
+        </div><!-- location row -->
+
+
+        <div class="row">
+            
+            <div class="col-xs-12 col-md-6">
+                <h2>Store New Location</h2>
+                <input type="text" class="form-control" placeholder="Zip Code" />
+                <button class="pull-right btn btn-default">Add Location</button>
+            </div>
+
+        </div>
+
+    </div>
+    
+</div>
