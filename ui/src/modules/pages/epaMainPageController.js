@@ -20,6 +20,7 @@ module.exports = function(ngModule) {
             $scope.GeoService = GeoService;
             $scope.AirQualityService = AirQualityService;
 
+            AirQualityService.checkLocalStorage();
             GeoService.updateLocation();
 
             $scope.$watch('GeoService.position', positionUpdated);

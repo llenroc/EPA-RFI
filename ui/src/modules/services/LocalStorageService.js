@@ -7,7 +7,8 @@ module.exports = function(ngModule) {
         var localStorage = $window.localStorage;
 
         this.get = function(key) {
-            return localStorage.getItem(key);
+            var str = localStorage.getItem(key);
+            return JSON.parse(str);
         };
 
         this.set = function(key, data) {
@@ -17,7 +18,7 @@ module.exports = function(ngModule) {
             }
             data.updated = now;
 
-            localStorage.setItem(key, data);
+            localStorage.setItem(key, JSON.stringify(data));
         };
 
         this.remove = function(key) {
