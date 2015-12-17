@@ -4,6 +4,10 @@ notifications:
 language: node_js
 node_js:
     - "4.1.1"
+services:
+- docker
+before_install:
+- docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
 install:
 - cd $TRAVIS_BUILD_DIR/ui
 - npm install
@@ -14,6 +18,16 @@ script:
 # tests go here
 - cd $TRAVIS_BUILD_DIR/api
 - npm test
+- docker build -t mandeville135/epa-rfi-api .
+- docker tag mandeville135/epa-rfi-api:latest mandeville135/epa-rfi-api:v1
+- docker push mandeville135/epa-rfi-api
+- cd $TRAVIS_BUILD_DIR
+- docker build -t mandeville135/epa-rfi-geocoder ./geocoder
+- docker tag mandeville135/epa-rfi-geocoder:latest mandeville135/epa-rfi-geocoder:v1
+- docker push mandeville135/epa-rfi-geocoder
+- docker build -t mandeville135/epa-rfi-ui ./ui
+- docker tag mandeville135/epa-rfi-ui:latest mandeville135/epa-rfi-ui:v1
+- docker push mandeville135/epa-rfi-ui
 sudo: required
 before_deploy:
 - cd $TRAVIS_BUILD_DIR
