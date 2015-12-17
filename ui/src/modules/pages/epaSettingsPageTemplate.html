@@ -46,10 +46,10 @@
             
             <div class="col-xs-9">
                 <span class="settings__name">
-                    location.name
+                    {{ location.name }}
                 </span>
                 <span class="settings__coords">
-                    location.zip
+                    {{ location.zip }}
                 </span>
             </div>
             <div class="col-xs-2">
@@ -62,8 +62,9 @@
             
             <div class="col-xs-12 col-md-6">
                 <h2>Store New Location</h2>
-                <input type="text" class="form-control" placeholder="Zip Code" />
-                <button class="pull-right btn btn-default">Add Location</button>
+                <input type="text" class="form-control" placeholder="Zip Code" ng-model="inputLocation" ng-required="true" />
+                <span class="help-inline">{{ inputMessage }}</span>
+                <button class="pull-right btn btn-default" ng-click="addLocation()">Add Location</button>
             </div>
 
         </div>
