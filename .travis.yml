@@ -18,17 +18,17 @@ script:
 # tests go here
 - cd $TRAVIS_BUILD_DIR/api
 - npm test
-- docker build -t AppliedIS/AISDockerHubEpaRfi:latest-api .
-- docker tag AppliedIS/AISDockerHubEpaRfi:latest-api AppliedIS/AISDockerHubEpaRfi:api-v1
-- docker push appliedis/AISDockerHubEpaRfi
+- docker build -t appliedis/aisdockerhubeparfi:latest-api .
+- docker tag appliedis/aisdockerhubeparfi:latest-api appliedis/aisdockerhubeparfi:api-v1
+- docker push appliedis/aisdockerhubeparfi
 - cd $TRAVIS_BUILD_DIR/geocoder
-- docker build -t AppliedIS/AISDockerHubEpaRfi:latest-geocoder .
-- docker tag AppliedIS/AISDockerHubEpaRfi:latest-geocoder AppliedIS/AISDockerHubEpaRfi:geocoder-v1
-- docker push AppliedIS/AISDockerHubEpaRfi
+- docker build -t appliedis/aisdockerhubeparfi:latest-geocoder .
+- docker tag appliedis/aisdockerhubeparfi:latest-geocoder appliedis/aisdockerhubeparfi:geocoder-v1
+- docker push appliedis/aisdockerhubeparfi
 - cd $TRAVIS_BUILD_DIR/ui
-- docker build -t AppliedIS/AISDockerHubEpaRfi:latest-ui .
-- docker tag AppliedIS/AISDockerHubEpaRfi:latest-ui AppliedIS/AISDockerHubEpaRfi:ui-v1
-- docker push AppliedIS/AISDockerHubEpaRfi
+- docker build -t appliedis/aisdockerhubeparfi:latest-ui .
+- docker tag appliedis/aisdockerhubeparfi:latest-ui appliedis/aisdockerhubeparfi:ui-v1
+- docker push appliedis/aisdockerhubeparfi
 sudo: required
 before_deploy:
 - cd $TRAVIS_BUILD_DIR
