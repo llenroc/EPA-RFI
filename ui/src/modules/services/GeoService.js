@@ -9,6 +9,15 @@ module.exports = function(ngModule) {
         this.loading = false;
         this.position = null;
 
+        this.supportsGeo = function() {
+            if (navigator.geolocation) {
+                console.log('Browser supports geolocation');
+                return true;
+            }
+            console.log('Browser does not support geolocation');
+            return false;
+        };
+
         this.updateLocation = function() {
 
             var startTime = moment();
@@ -44,7 +53,7 @@ module.exports = function(ngModule) {
                 }
             };
 
-            if (navigator.geolocation) {
+            if (this.supportsGeo()) {
                 this.supported = true;
                 this.loading = true;
                 navigator.geolocation.getCurrentPosition(
@@ -54,7 +63,6 @@ module.exports = function(ngModule) {
                 );
             }
             else {
-                console.log('Browser does not support geolocation');
                 this.supported = false;
                 this.loading = false;
             }

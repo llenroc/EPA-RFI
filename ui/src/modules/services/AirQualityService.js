@@ -37,7 +37,7 @@ module.exports = function(ngModule) {
             }
 
             var updated = new Date(d.updated);
-            var expired = moment().subtract('hour', 2);
+            var expired = moment().subtract(2, 'hours');
             if (expired.isAfter(updated)) {
                 console.log('Expiration [' + expired + '] is after [' + updated + ']');
                 return;

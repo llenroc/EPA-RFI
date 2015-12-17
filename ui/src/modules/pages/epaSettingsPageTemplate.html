@@ -11,7 +11,7 @@
 
         </div>
 
-        <!-- location -->
+        <!-- current location -->
         <div class="row settings__location">
             <div class="col-xs-1 right">
                 <!-- i class="glyphicon glyphicon-ok"></i -->
@@ -35,7 +35,7 @@
         </div><!-- location row -->
         
         <!-- location -->
-        <div class="row settings__location">
+        <div class="row settings__location" ng-repeat="location in locations">
             <div class="col-xs-1 right">
                 <!-- i class="glyphicon glyphicon-ok"></i -->
                 <div class="settings__picker" ng-click="">
@@ -46,10 +46,10 @@
             
             <div class="col-xs-9">
                 <span class="settings__name">
-                    Beavercreek, Ohio
+                    location.name
                 </span>
                 <span class="settings__coords">
-                    45431
+                    location.zip
                 </span>
             </div>
             <div class="col-xs-2">
