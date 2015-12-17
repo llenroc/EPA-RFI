@@ -10,6 +10,13 @@ var all = {
         baseUrl: 'http://www.airnowapi.org',
         apiKey: '489ED029-1E6E-4558-9FF5-AD40DDEE4099',
         maxResults: 100 // API currently limits requests to 100 results
+    },
+    postgresDb: {
+        hostName: 'db',
+        database: 'epa_rfi',
+        user: 'epa_rfi',
+        pass: 'epa_demo',
+        port: 5432
     }
 };
 

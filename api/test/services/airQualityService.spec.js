@@ -8,7 +8,7 @@ var fs = require('fs');
 var nock = require('nock');
 var should = require('should');
 
-describe('UserService', function() {
+describe('AirQualityService', function() {
     beforeEach(function(done) {
         // No shared setup presently
 

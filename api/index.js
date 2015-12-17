@@ -25,6 +25,8 @@ server.start(function() {
     console.log('Node/Hapi running on port ' + server.info.port);
 });
 
+
+
 var terminate = function (code) {
     console.log(code + ' received. Shutting down.');
     server.stop(function () {

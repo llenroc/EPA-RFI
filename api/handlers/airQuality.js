@@ -43,7 +43,7 @@ module.exports = {
         validate: {
             params: Joi.object().keys({
                 distance: Joi.number().min(1).max(500),
-                zipCode: Joi.string()
+                zipCode: Joi.string().regex(/^[0-9]{5}$/)
             })
         }
     }
