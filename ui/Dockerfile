@@ -2,5 +2,5 @@ FROM nginx:latest
 MAINTAINER "Michael Bowman<bowmanmc@gmail.com>"
 
 COPY dist /usr/share/nginx/html
-RUN rm -v /etc/nginx/nginx.conf
-ADD nginx.conf /etc/nginx/
+COPY nginx.conf /etc/nginx/conf.d/api.conf
+
