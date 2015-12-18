@@ -30,6 +30,7 @@ deploy:
   organization: AIS
   space: development
 after_deploy:
+- cd $TRAVIS_BUILD_DIR/api
 - docker build -t aisdockerhubeparfi/api .
 - docker tag aisdockerhubeparfi/api:latest aisdockerhubeparfi/api-v1
 - docker push aisdockerhubeparfi/epi
