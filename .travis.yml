@@ -17,7 +17,7 @@ install:
 script:
 # tests go here
 - cd $TRAVIS_BUILD_DIR/api
-- npm test
+- npm run test-travis
 before_deploy:
 - cd $TRAVIS_BUILD_DIR
 sudo: required
