@@ -15,8 +15,8 @@
         <div class="row settings__location" ng-show="showCurrent">
             <div class="col-xs-1 right">
                 <!-- i class="glyphicon glyphicon-ok"></i -->
-                <div class="settings__picker" ng-click="">
-                    <svg class="active"><use xlink:href="#icon-checkmark"></use></svg>
+                <div class="settings__picker" ng-click="setActiveLocation('current')">
+                    <svg ng-class="{active: active.location === 'current'}"><use xlink:href="#icon-checkmark"></use></svg>
                 </div>
 
             </div>
@@ -36,10 +36,11 @@
         
         <!-- location -->
         <div class="row settings__location" ng-repeat="location in locations">
+
             <div class="col-xs-1 right">
                 <!-- i class="glyphicon glyphicon-ok"></i -->
-                <div class="settings__picker" ng-click="">
-                    <svg class=""><use xlink:href="#icon-checkmark"></use></svg>
+                <div class="settings__picker" ng-click="setActiveLocation(location.zip)">
+                    <svg ng-class="{active: active.location == location.zip}"><use xlink:href="#icon-checkmark"></use></svg>
                 </div>
 
             </div>

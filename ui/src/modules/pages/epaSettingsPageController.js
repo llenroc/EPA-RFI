@@ -30,10 +30,23 @@ module.exports = function(ngModule) {
             return false;
         };
 
+        var refreshLocations = function() {
+            $scope.locations = StoredLocationsService.getLocations();
+        };
+        
+        var refreshActive = function() {
+            $scope.active = StoredLocationsService.getActiveLocation();
+        };
+        
+        $scope.setActiveLocation = function(zip) {
+            StoredLocationsService.setActiveLocation(zip);
+            refreshActive();
+        };
+
         $scope.removeLocation = function(zip) {
             console.log('Removing stored location ' + zip);
             StoredLocationsService.removeLocation(zip);
-            $scope.locations = StoredLocationsService.getLocations();
+            refreshLocations();
         };
 
         $scope.addLocation = function() {
@@ -45,7 +58,7 @@ module.exports = function(ngModule) {
                     zip: parseZipCode()
                 };
                 StoredLocationsService.storeLocation(location);
-                $scope.locations = StoredLocationsService.getLocations();
+                refreshLocations();
             }
             else {
                 console.log('Location is invalid!');
@@ -57,7 +70,8 @@ module.exports = function(ngModule) {
             if (GeoService.supportsGeo()) {
                 $scope.showCurrent = true;
             }
-            $scope.locations = StoredLocationsService.getLocations();
+            refreshActive();
+            refreshLocations();
         };
         initialize();
     });

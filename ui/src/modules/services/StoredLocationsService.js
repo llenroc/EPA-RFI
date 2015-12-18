@@ -5,6 +5,23 @@ module.exports = function(ngModule) {
     ngModule.service('StoredLocationsService', function(LocalStorageService) {
 
         var LS_LOCATIONS_KEY = 'locations';
+        var LS_ACTIVE_KEY = 'active';
+
+        this.setActiveLocation = function(zip) {
+            LocalStorageService.set(LS_ACTIVE_KEY, {
+                'location': zip
+            });
+        };
+
+        this.getActiveLocation = function() {
+            var active = LocalStorageService.get(LS_ACTIVE_KEY);
+            if (active !== null) {
+                return active;
+            }
+            return {
+                'location': 'current'
+            };
+        };
 
         this.removeLocation = function(zip) {
             // creates a new array without the matching location and stores it
