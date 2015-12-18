@@ -8,8 +8,7 @@ var all = {
     port: parseInt(process.env.VCAP_APP_PORT, 10) || parseInt(process.env.PORT, 10) || 3000,
     epaApi: {
         baseUrl: 'http://www.airnowapi.org',
-        apiKey: '489ED029-1E6E-4558-9FF5-AD40DDEE4099',
-        maxResults: 100 // API currently limits requests to 100 results
+        apiKey: '489ED029-1E6E-4558-9FF5-AD40DDEE4099'
     },
     postgresDb: {
         hostName: '192.168.99.100',

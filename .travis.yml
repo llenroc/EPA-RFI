@@ -12,16 +12,17 @@ install:
 - cd $TRAVIS_BUILD_DIR/ui
 - npm install
 - npm run dist
-- docker build -t aisdockerhubeparfi/ui .
 - cd $TRAVIS_BUILD_DIR
+- docker build -t aisdockerhubeparfi/ui ui/.
 - docker build -t aisdockerhubeparfi/api api/.
 - docker build -t aisdockerhubeparfi/geocoder db/.
 script:
 # testing the API require a running DB
-- docker run --name=db -P -d aisdockerhubeparfi/geocoder
+- docker run --name=db -d aisdockerhubeparfi/geocoder
 - sleep 10
 # After waiting a few seconds for DB init, run tests in api container with link to DB
 - docker run --rm=true --link db aisdockerhubeparfi/api npm run test-travis
+# Stop and clean up DB container
 - docker stop db
 - docker rm db
 before_deploy:
