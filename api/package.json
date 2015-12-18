@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node_modules/nodemon/bin/nodemon.js index.js",
     "test": "NODE_ENV=development node_modules/mocha/bin/mocha --recursive test",
-    "test-travis": "docker build -t epa_db ../db && docker run --name=epa_db -p 5432:5432 -d epa_db && docker ps && docker info && sleep 5 && NODE_ENV=test node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- --recursive test; docker stop epa_db; docker rm epa_db"
+    "test-travis": "NODE_ENV=test node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- --recursive test"
   },
   "repository": {
     "type": "git",

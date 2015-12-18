@@ -6,6 +6,6 @@ module.exports = {
         database: 'postgres',
         user: 'postgres',
         pass: '',
-        port: 5432
+        port: process.env.DB_PORT
     }
 };

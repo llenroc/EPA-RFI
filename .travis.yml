@@ -17,7 +17,15 @@ install:
 script:
 # tests go here
 - cd $TRAVIS_BUILD_DIR/api
+- docker build -t epa_db ../db
+- docker run --name=epa_db -P -d epa_db
+- export DB_PORT=docker inspect -f '{{ .NetworkSettings.Ports }}' epa_db | awk '{print $2}' | cut -d '}' -f 1
+- echo DB_PORT
 - npm run test-travis
+- docker stop epa_db
+- docker rm epa_db
+- docker rmi epa_db
+
 before_deploy:
 - cd $TRAVIS_BUILD_DIR
 sudo: required
