@@ -21,7 +21,7 @@ script:
 - docker build -t appliedis/aisdockerhubeparfi:latest-api .
 - docker tag appliedis/aisdockerhubeparfi:latest-api appliedis/aisdockerhubeparfi:api-v1
 - docker push appliedis/aisdockerhubeparfi
-- cd $TRAVIS_BUILD_DIR/geocoder
+- cd $TRAVIS_BUILD_DIR/db
 - docker build -t appliedis/aisdockerhubeparfi:latest-geocoder .
 - docker tag appliedis/aisdockerhubeparfi:latest-geocoder appliedis/aisdockerhubeparfi:geocoder-v1
 - docker push appliedis/aisdockerhubeparfi
