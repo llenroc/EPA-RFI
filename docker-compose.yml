@@ -1,0 +1,16 @@
+api:
+  image: 'aisdockerhubeparfi/api:latest'
+  links:
+    - db
+  ports:
+    - '3000:3000'
+db:
+  image: 'aisdockerhubeparfi/geocoder:latest'
+  ports:
+    - '5432:5432'
+ui:
+  image: 'aisdockerhubeparfi/ui:latest'
+  links:
+    - api
+  ports:
+  - '80:80'
