@@ -1,11 +1,4 @@
-FROM node:latest
+FROM nginx:latest
 MAINTAINER "Michael Bowman<bowmanmc@gmail.com>"
 
-WORKDIR /src
-COPY . /src
-
-RUN cd /src; npm install --silent;
-
-CMD ["npm", "start"]
-
-EXPOSE 9000
+ADD ../dist /usr/share/nginx/html

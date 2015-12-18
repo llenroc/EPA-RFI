@@ -18,16 +18,17 @@ script:
 # tests go here
 - cd $TRAVIS_BUILD_DIR/api
 - npm test
-- docker build -t mandeville135/epa-rfi-api .
-- docker tag mandeville135/epa-rfi-api:latest mandeville135/epa-rfi-api:v1
-- docker push mandeville135/epa-rfi-api
-- cd $TRAVIS_BUILD_DIR
-- docker build -t mandeville135/epa-rfi-geocoder ./geocoder
-- docker tag mandeville135/epa-rfi-geocoder:latest mandeville135/epa-rfi-geocoder:v1
-- docker push mandeville135/epa-rfi-geocoder
-- docker build -t mandeville135/epa-rfi-ui ./ui
-- docker tag mandeville135/epa-rfi-ui:latest mandeville135/epa-rfi-ui:v1
-- docker push mandeville135/epa-rfi-ui
+- docker build -t appliedis/aisdockerhubeparfi:latest-api .
+- docker tag appliedis/aisdockerhubeparfi:latest-api appliedis/aisdockerhubeparfi:api-v1
+- docker push appliedis/aisdockerhubeparfi
+- cd $TRAVIS_BUILD_DIR/geocoder
+- docker build -t appliedis/aisdockerhubeparfi:latest-geocoder .
+- docker tag appliedis/aisdockerhubeparfi:latest-geocoder appliedis/aisdockerhubeparfi:geocoder-v1
+- docker push appliedis/aisdockerhubeparfi
+- cd $TRAVIS_BUILD_DIR/ui
+- docker build -t appliedis/aisdockerhubeparfi:latest-ui .
+- docker tag appliedis/aisdockerhubeparfi:latest-ui appliedis/aisdockerhubeparfi:ui-v1
+- docker push appliedis/aisdockerhubeparfi
 sudo: required
 before_deploy:
 - cd $TRAVIS_BUILD_DIR
