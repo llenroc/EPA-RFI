@@ -32,8 +32,8 @@ deploy:
 after_deploy:
 - cd $TRAVIS_BUILD_DIR/api
 - docker build -t aisdockerhubeparfi/api .
-- docker tag aisdockerhubeparfi/api:latest aisdockerhubeparfi/api-v1
-- docker push aisdockerhubeparfi/epi
+- docker tag aisdockerhubeparfi/api:latest aisdockerhubeparfi/api:v1
+- docker push aisdockerhubeparfi/api
 - cd $TRAVIS_BUILD_DIR/db
 - docker build -t aisdockerhubeparfi/geocoder .
 - docker tag aisdockerhubeparfi/geocoder:latest aisdockerhubeparfi/geocoder:v1
