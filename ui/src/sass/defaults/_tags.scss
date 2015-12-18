@@ -1,26 +1,13 @@
-@font-face {
-    font-family: 'Roboto';
-    src: url("../fonts/roboto-webfont/Roboto-Light-webfont.ttf") format(truetype);
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Roboto';
-    src: url("../fonts/roboto-webfont/Roboto-Bold-webfont.ttf") format(truetype);
-    font-weight: bold;
-    font-style: normal;
-}
 
 html, body {
-    font-family: 'Roboto', sans-serif;
     height: 100%;
     min-height: 100%;
 }
 
 body {
     background: $light;
-    color: $dark;
+    color: $txt_dark;
+    font-family: $font-stack;
 }
 
 a {
