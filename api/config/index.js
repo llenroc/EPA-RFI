@@ -21,7 +21,16 @@ var all = {
 };
 
 // get environment-specific config
+// try to load envrionment-specific config
+var environmentConfig = {};
+try {
+    environmentConfig = require('./' + process.env.NODE_ENV + '.js');
+}
+catch (e) {
+    if(!e instanceof Error || e.code !== "MODULE_NOT_FOUND")
+        throw e;
+}
 module.exports = _.merge(
     all,
-    require('./' + process.env.NODE_ENV + '.js') || {}
+    environmentConfig
 );
