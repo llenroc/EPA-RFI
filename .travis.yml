@@ -30,14 +30,14 @@ deploy:
   organization: AIS
   space: development
 after_deploy:
-- docker build -t appliedis/aisdockerhubeparfi:latest-api .
-- docker tag appliedis/aisdockerhubeparfi:latest-api appliedis/aisdockerhubeparfi:api-v1
-- docker push appliedis/aisdockerhubeparfi
+- docker build -t aisdockerhubeparfi/api .
+- docker tag aisdockerhubeparfi/api:latest aisdockerhubeparfi/api-v1
+- docker push aisdockerhubeparfi/epi
 - cd $TRAVIS_BUILD_DIR/db
-- docker build -t appliedis/aisdockerhubeparfi:latest-geocoder .
-- docker tag appliedis/aisdockerhubeparfi:latest-geocoder appliedis/aisdockerhubeparfi:geocoder-v1
-- docker push appliedis/aisdockerhubeparfi
+- docker build -t aisdockerhubeparfi/geocoder .
+- docker tag aisdockerhubeparfi/geocoder:latest aisdockerhubeparfi/geocoder:v1
+- docker push aisdockerhubeparfi/geocoder
 - cd $TRAVIS_BUILD_DIR/ui
-- docker build -t appliedis/aisdockerhubeparfi:latest-ui .
-- docker tag appliedis/aisdockerhubeparfi:latest-ui appliedis/aisdockerhubeparfi:ui-v1
-- docker push appliedis/aisdockerhubeparfi
+- docker build -t aisdockerhubeparfi/ui .
+- docker tag aisdockerhubeparfi/ui:latest aisdockerhubeparfi/ui:v1
+- docker push aisdockerhubeparfi/ui
