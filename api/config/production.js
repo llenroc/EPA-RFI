@@ -1,5 +1,11 @@
 'use strict';
 
 module.exports = {
-    // Placeholder for production settings.
+    postgresDb: {
+        hostName: 'db',
+        database: 'postgres',
+        user: 'postgres',
+        pass: process.env.POSTGRES_PASSWORD,
+        port: 5432
+    }
 };
