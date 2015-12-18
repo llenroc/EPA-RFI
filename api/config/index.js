@@ -12,10 +12,10 @@ var all = {
         maxResults: 100 // API currently limits requests to 100 results
     },
     postgresDb: {
-        hostName: 'db',
-        database: 'epa_rfi',
-        user: 'epa_rfi',
-        pass: 'epa_demo',
+        hostName: '192.168.99.100',
+        database: 'postgres',
+        user: 'postgres',
+        pass: '',
         port: 5432
     }
 };

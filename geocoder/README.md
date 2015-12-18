@@ -1,6 +1,6 @@
-# AIS EPA Geocoding
+# AIS EPA Database for Geocoding
 
 ```
-docker build -t ais_geocoder .
-docker run -p 5432:5432  -v `pwd`/geocoder:/gisdata:rw --name ais_geocoder -e POSTGRES_PASSWORD=mysecretpassword -d ais_geocoder
+docker build -t epa_rfi_db .
+docker run -p 5432:5432 --name epa_rfi_db -e POSTGRES_PASSWORD=mysecretpassword -d epa_rfi_db
 ```

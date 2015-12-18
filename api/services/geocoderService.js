@@ -21,8 +21,8 @@ function GeocoderService() {
                     return callback('Error running query: ' + err);
                 }
                 if (result && result.rows.length > 0) {
-                    console.log(result.rows);
-                    callback(null, result.rows);
+                    console.log(result.rows[0]);
+                    callback(null, result.rows[0]);
                 }
                 else {
                     // if we have no matches return null
