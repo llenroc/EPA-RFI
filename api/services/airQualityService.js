@@ -48,8 +48,10 @@ function AirQualityService() {
     pub.getAirQualityByLatLon = function(distance, lat, lon, callback) {
         var format = 'application/json';
 
-        var apiUrl = `${config.epaApi.baseUrl}/aq/observation/latLong/current/?`
-            `API_KEY=${config.epaApi.apiKey}&latitude=${lat}&longitude=${lon}&distance=${distance}&format=${format}`;
+        var apiUrl = config.epaApi.baseUrl + '/aq/observation/latLong/current/?API_KEY='
+            + config.epaApi.apiKey +
+            '&latitude=' + lat + '&longitude=' + lon +
+            '&distance=' + distance + '&format=' + format;
         request(apiUrl, function(error, response, bodyRaw) {
             extractAirQuality(error, response, bodyRaw, callback);
         });
@@ -59,8 +61,9 @@ function AirQualityService() {
         var format = 'application/json';
 
 
-        var apiUrl = `${config.epaApi.baseUrl}/aq/observation/zipCode/current/`
-            `?API_KEY=${config.epaApi.apiKey}&zipCode=${zipCode}&distance=${distance}&format=${format}`;
+        var apiUrl = config.epaApi.baseUrl + '/aq/observation/zipCode/current/?API_KEY='
+            + config.epaApi.apiKey +
+            '&zipCode=' + zipCode + '&distance=' + distance + '&format=' + format;
         request(apiUrl, function(error, response, bodyRaw) {
             extractAirQuality(error, response, bodyRaw, callback);
         });
