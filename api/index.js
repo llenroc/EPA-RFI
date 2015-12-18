@@ -6,26 +6,7 @@ require('newrelic');
 // Set default node environment to development
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-var config = require('./config');
-
-// Hapi
-var Hapi = require('hapi');
-var server = new Hapi.Server({
-    connections: {
-        routes: {
-            cors: true
-        }
-    }
-});
-server.connection({ port: config.port });
-
-server.route(require('./routes'));
-
-server.start(function() {
-    console.log('Node/Hapi running on port ' + server.info.port);
-});
-
-
+var server = require('./server');
 
 var terminate = function (code) {
     console.log(code + ' received. Shutting down.');

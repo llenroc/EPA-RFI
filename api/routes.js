@@ -7,7 +7,7 @@ var Geocoder = require('./handlers/geocoder');
 module.exports = [
     {
         method: 'GET',
-        path: '/api/hello',
+        path: '/api/',
         handler: Hello
     },
     {

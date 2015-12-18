@@ -1,6 +1,6 @@
 'use strict';
 
-var airQualityService = require('../../services/airQualityService')();
+var server = require('../../server');
 var config = require('../../config');
 
 var path = require('path');
@@ -9,8 +9,13 @@ var nock = require('nock');
 var should = require('should');
 
 describe('AirQualityService', function() {
+    var options;
+
     beforeEach(function(done) {
-        // No shared setup presently
+        options = {
+            method: 'GET',
+            url: '/api/air-quality'
+        };
 
         done();
     });
@@ -25,11 +30,12 @@ describe('AirQualityService', function() {
                 return fs.createReadStream(response_data);
             });
 
-        // Act
-        airQualityService.getAirQualityByLatLon(100, 34, -114, function(err, data) {
-            // Assert
-            data.quality.value.should.equal(1);
-            data.quality.description.should.equal('Good');
+        options.url += '/lat-lon/100/34/-114';
+
+        server.inject(options, function(response) {
+            response.statusCode.should.equal(200);
+            response.result.quality.value.should.equal(1);
+            response.result.quality.description.should.equal('Good');
 
             done();
         });
@@ -45,11 +51,13 @@ describe('AirQualityService', function() {
                 return fs.createReadStream(response_data);
             });
 
-        // Act
-        airQualityService.getAirQualityByZipCode(100, 20002, function(err, data) {
-            // Assert
-            data.quality.value.should.equal(1);
-            data.quality.description.should.equal('Good');
+
+        options.url += '/zip-code/100/20002';
+
+        server.inject(options, function(response) {
+            response.statusCode.should.equal(200);
+            response.result.quality.value.should.equal(1);
+            response.result.quality.description.should.equal('Good');
 
             done();
         });

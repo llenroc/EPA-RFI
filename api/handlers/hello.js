@@ -1,5 +1,6 @@
 'use strict';
 
 module.exports = function(request, reply) {
-    reply({ 'api' : 'hello!' });
+    console.log('hello called');
+    reply({ 'api' : 'AIS says hello!' });
 };
