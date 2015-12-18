@@ -6,6 +6,16 @@ module.exports = function(ngModule) {
 
         var LS_LOCATIONS_KEY = 'locations';
 
+        this.removeLocation = function(zip) {
+            // creates a new array without the matching location and stores it
+            // back to local storage.
+            var old = this.getLocations();
+            var locations = old.filter(function(l) {
+                return l.zip !== zip;
+            });
+            LocalStorageService.set(LS_LOCATIONS_KEY, locations);
+        };
+
         this.storeLocation = function(location) {
             var locations = this.getLocations();
             locations.push(location);

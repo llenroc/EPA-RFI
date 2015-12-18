@@ -2,34 +2,47 @@
 
 module.exports = function(ngModule) {
 
-    ngModule.controller('epaSettingsPageController', function($scope, StoredLocationsService) {
+    ngModule.controller('epaSettingsPageController', function($scope, GeoService, StoredLocationsService) {
 
         $scope.locations = [];
+        $scope.showCurrent = false;
 
-        var isValid = function() {
+        var parseZipCode = function() {
             if (typeof $scope.inputLocation === 'undefined' || $scope.inputLocation === null) {
-                $scope.inputMessage = 'Please enter a Zip Code.';
-                return false;
+                return null;
             }
-
+            if ($scope.inputLocation.length !== 5) {
+                return null;
+            }
             var zip = parseInt($scope.inputLocation);
             if (isNaN(zip)) {
-                $scope.inputMessage = 'Please enter a numeric Zip Code.';
-                return false;
+                return null;
             }
+            return zip;
+        };
 
-            return true;
+        var isValid = function() {
+            var zip = parseZipCode();
+            if (zip) {
+                return true;
+            }
+            $scope.inputMessage = 'Please enter a valid Zip Code.';
+            return false;
+        };
+
+        $scope.removeLocation = function(zip) {
+            console.log('Removing stored location ' + zip);
+            StoredLocationsService.removeLocation(zip);
+            $scope.locations = StoredLocationsService.getLocations();
         };
 
         $scope.addLocation = function() {
-
             $scope.inputMessage = '';
 
             if (isValid()) {
-                console.log('Location is valid!');
                 var location = {
                     name: 'TestCity, OH',
-                    zip: parseInt($scope.inputLocation)
+                    zip: parseZipCode()
                 };
                 StoredLocationsService.storeLocation(location);
                 $scope.locations = StoredLocationsService.getLocations();
@@ -41,7 +54,9 @@ module.exports = function(ngModule) {
 
         var initialize = function() {
             console.log('epaSettingsPageController initializing...');
-            
+            if (GeoService.supportsGeo()) {
+                $scope.showCurrent = true;
+            }
             $scope.locations = StoredLocationsService.getLocations();
         };
         initialize();

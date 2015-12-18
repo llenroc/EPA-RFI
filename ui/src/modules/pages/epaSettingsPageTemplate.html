@@ -12,7 +12,7 @@
         </div>
 
         <!-- current location -->
-        <div class="row settings__location">
+        <div class="row settings__location" ng-show="showCurrent">
             <div class="col-xs-1 right">
                 <!-- i class="glyphicon glyphicon-ok"></i -->
                 <div class="settings__picker" ng-click="">
@@ -53,7 +53,7 @@
                 </span>
             </div>
             <div class="col-xs-2">
-                <i class="glyphicon glyphicon-remove"></i>
+                <i ng-click="removeLocation(location.zip)" class="glyphicon glyphicon-remove"></i>
             </div>
         </div><!-- location row -->
 
