@@ -1,9 +1,9 @@
 api:
-  image: 'aisdockerhubeparfi/api:latest'
+  build: api/.
   links:
     - db
 db:
-  image: 'aisdockerhubeparfi/geocoder:latest'
+  build: db/.
 ui:
   build: ui/.
   links:
