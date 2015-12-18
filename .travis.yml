@@ -12,9 +12,10 @@ install:
 - cd $TRAVIS_BUILD_DIR/ui
 - npm install
 - npm run dist
-- docker build -t aisdockerhubeparfi/ui .
-- docker build -t aisdockerhubeparfi/api .
-- docker build -t aisdockerhubeparfi/geocoder .
+- cd $TRAVIS_BUILD_DIR
+- docker build -t aisdockerhubeparfi/ui ui/.
+- docker build -t aisdockerhubeparfi/api api/.
+- docker build -t aisdockerhubeparfi/geocoder db/.
 script:
 # testing the API require a running DB
 - docker run --name=db -d aisdockerhubeparfi/geocoder
