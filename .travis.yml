@@ -12,20 +12,18 @@ install:
 - cd $TRAVIS_BUILD_DIR/ui
 - npm install
 - npm run dist
-- cd $TRAVIS_BUILD_DIR/api
-- npm install
+- docker build -t aisdockerhubeparfi/ui .
+- cd $TRAVIS_BUILD_DIR
+- docker build -t aisdockerhubeparfi/api api/.
+- docker build -t aisdockerhubeparfi/geocoder db/.
 script:
-# tests go here
-- cd $TRAVIS_BUILD_DIR/api
-- docker build -t epa_db ../db
-- docker run --name=epa_db -P -d epa_db
-- export DB_PORT=docker inspect -f '{{ .NetworkSettings.Ports }}' epa_db | awk '{print $2}' | cut -d '}' -f 1
-- echo DB_PORT
-- npm run test-travis
-- docker stop epa_db
-- docker rm epa_db
-- docker rmi epa_db
-
+# testing the API require a running DB
+- docker run --name=db -P -d aisdockerhubeparfi/geocoder
+- sleep 10
+# After waiting a few seconds for DB init, run tests in api container with link to DB
+- docker run --rm=true --link db aisdockerhubeparfi/api npm run test-travis
+- docker stop db
+- docker rm db
 before_deploy:
 - cd $TRAVIS_BUILD_DIR
 sudo: required
@@ -38,15 +36,9 @@ deploy:
   organization: AIS
   space: development
 after_deploy:
-- cd $TRAVIS_BUILD_DIR/api
-- docker build -t aisdockerhubeparfi/api .
 - docker tag aisdockerhubeparfi/api:latest aisdockerhubeparfi/api:v1
 - docker push aisdockerhubeparfi/api
-- cd $TRAVIS_BUILD_DIR/db
-- docker build -t aisdockerhubeparfi/geocoder .
 - docker tag aisdockerhubeparfi/geocoder:latest aisdockerhubeparfi/geocoder:v1
 - docker push aisdockerhubeparfi/geocoder
-- cd $TRAVIS_BUILD_DIR/ui
-- docker build -t aisdockerhubeparfi/ui .
 - docker tag aisdockerhubeparfi/ui:latest aisdockerhubeparfi/ui:v1
 - docker push aisdockerhubeparfi/ui

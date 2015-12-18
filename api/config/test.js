@@ -2,10 +2,10 @@
 
 module.exports = {
     postgresDb: {
-        hostName: 'localhost',
+        hostName: 'db',
         database: 'postgres',
         user: 'postgres',
         pass: '',
-        port: process.env.DB_PORT
+        port: 5432
     }
 };
