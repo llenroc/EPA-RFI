@@ -11,7 +11,7 @@ module.exports = function(ngModule) {
 
         this.updateAirQuality = function(latitude, longitude) {
             var distance = 100;
-            var url = `http://epa-server.cfapps.io/api/air-quality/lat-lon/${distance}/${latitude}/${longitude}`;
+            var url = `http://tutum-79f231a3.cloudapp.net/api/air-quality/lat-lon/${distance}/${latitude}/${longitude}`;
             var svc = this;
             $http.get(url).then(function(response) {
                 console.log('Got an api response: ' + JSON.stringify(response));

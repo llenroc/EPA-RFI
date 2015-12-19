@@ -2,7 +2,7 @@
 
 module.exports = function(ngModule) {
 
-    ngModule.controller('epaSettingsPageController', function($scope, GeoService, StoredLocationsService) {
+    ngModule.controller('epaSettingsPageController', function($scope, AirQualityService, GeocoderService, GeoService, StoredLocationsService) {
 
         $scope.locations = [];
         $scope.showCurrent = false;
@@ -33,11 +33,17 @@ module.exports = function(ngModule) {
         var refreshLocations = function() {
             $scope.locations = StoredLocationsService.getLocations();
         };
-        
+
         var refreshActive = function() {
             $scope.active = StoredLocationsService.getActiveLocation();
+            if ($scope.active.latitude && $scope.active.longitude) {
+                AirQualityService.updateAirQuality(
+                    $scope.active.latitude,
+                    $scope.active.longitude
+                );
+            }
         };
-        
+
         $scope.setActiveLocation = function(zip) {
             StoredLocationsService.setActiveLocation(zip);
             refreshActive();
@@ -53,12 +59,28 @@ module.exports = function(ngModule) {
             $scope.inputMessage = '';
 
             if (isValid()) {
-                var location = {
-                    name: 'TestCity, OH',
-                    zip: parseZipCode()
-                };
-                StoredLocationsService.storeLocation(location);
-                refreshLocations();
+                GeocoderService.identifyLocation($scope.inputLocation).then(function (response) {
+                    console.log(response);
+                    if (response.city && response.state && response.latitude && response.longitude) {
+                        var location = {
+                            name: `${response.city}, ${response.state}`,
+                            latitude: response.latitude,
+                            longitude: response.longitude,
+                            zip: parseZipCode()
+                        };
+                        StoredLocationsService.storeLocation(location);
+                        refreshLocations();
+                    }
+                    else {
+                        console.log(`Location is invalid: ${response}`);
+                    }
+                    },
+                    function (error) {
+                        console.log(`Error querying Geocoder server: ${error}`);
+                    }
+                );
+
+
             }
             else {
                 console.log('Location is invalid!');
