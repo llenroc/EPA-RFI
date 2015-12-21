@@ -36,6 +36,7 @@ module.exports = function(ngModule) {
 
         var refreshActive = function() {
             $scope.active = StoredLocationsService.getActiveLocation();
+            console.log('Active set to: ' + JSON.stringify($scope.active));
             if ($scope.active.latitude && $scope.active.longitude) {
                 AirQualityService.updateAirQuality(
                     $scope.active.latitude,
@@ -44,14 +45,14 @@ module.exports = function(ngModule) {
             }
         };
 
-        $scope.setActiveLocation = function(zip) {
-            StoredLocationsService.setActiveLocation(zip);
+        $scope.setActiveLocation = function(location) {
+            StoredLocationsService.setActiveLocation(location);
             refreshActive();
         };
 
-        $scope.removeLocation = function(zip) {
-            console.log('Removing stored location ' + zip);
-            StoredLocationsService.removeLocation(zip);
+        $scope.removeLocation = function(location) {
+            console.log('Removing stored location ' + location);
+            StoredLocationsService.removeLocation(location);
             refreshLocations();
         };
 

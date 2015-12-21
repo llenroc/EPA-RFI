@@ -16,7 +16,7 @@
             <div class="settings__location-row">
 
                 <div class="settings__location-picker" ng-click="setActiveLocation('current')">
-                    <i ng-class="{active: active.location === 'current'}" class="fa fa-check"></i>
+                    <i ng-class="{active: active === 'current'}" class="fa fa-check"></i>
                 </div>
 
                 <div class="settings__location-name">
@@ -40,9 +40,8 @@
         <!-- location -->
         <div class="row settings__location" ng-repeat="location in locations">
             <div class="settings__location-row">
-
                 <div class="settings__location-picker" ng-click="setActiveLocation(location.zip)">
-                    <i ng-class="{active: active.location === location.zip}" class="fa fa-check"></i>
+                    <i ng-class="{active: active.zip == location.zip}" class="fa fa-check"></i>
                 </div>
 
                 <div class="settings__location-name">

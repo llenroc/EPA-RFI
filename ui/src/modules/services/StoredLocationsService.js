@@ -7,16 +7,16 @@ module.exports = function(ngModule) {
         var LS_LOCATIONS_KEY = 'locations';
         var LS_ACTIVE_KEY = 'active';
 
-        this.setActiveLocation = function(zip) {
+        this.setActiveLocation = function(location) {
             LocalStorageService.set(LS_ACTIVE_KEY, {
-                'location': zip
+                'location': location
             });
         };
 
         this.getActiveLocation = function() {
             var active = LocalStorageService.get(LS_ACTIVE_KEY);
             if (active !== null) {
-                return active;
+                return active.location;
             }
             return {
                 'location': 'current'
