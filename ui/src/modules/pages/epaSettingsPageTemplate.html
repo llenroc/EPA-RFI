@@ -1,7 +1,7 @@
 
 <div class="settingspage">
     
-    <div class="container-fluid">
+    <div class="container">
         
         <div class="row">
             
@@ -13,59 +13,59 @@
 
         <!-- current location -->
         <div class="row settings__location" ng-show="showCurrent">
-            <div class="col-xs-1 right">
-                <!-- i class="glyphicon glyphicon-ok"></i -->
-                <div class="settings__picker" ng-click="setActiveLocation('current')">
-                    <svg ng-class="{active: active.location === 'current'}"><use xlink:href="#icon-checkmark"></use></svg>
+            <div class="settings__location-row">
+
+                <div class="settings__location-picker" ng-click="setActiveLocation('current')">
+                    <i ng-class="{active: active.location === 'current'}" class="fa fa-check"></i>
                 </div>
 
-            </div>
-            
-            <div class="col-xs-9">
-                <span class="settings__name">
-                    Current
-                </span>
-                <span class="settings__coords">
-                    39.9331, -84.1230
-                </span>
-            </div>
-            <div class="col-xs-2">
-                <i class="glyphicon glyphicon-remove"></i>
-            </div>
-        </div><!-- location row -->
+                <div class="settings__location-name">
+                    <span class="sln-name">
+                        Current
+                    </span>
+                    <span class="sln-coords">
+                        39.9331, -84.1230
+                    </span>
+                </div>
+
+            </div><!-- settings__location-row -->
+        </div>
         
         <!-- location -->
         <div class="row settings__location" ng-repeat="location in locations">
+            <div class="settings__location-row">
 
-            <div class="col-xs-1 right">
-                <!-- i class="glyphicon glyphicon-ok"></i -->
-                <div class="settings__picker" ng-click="setActiveLocation(location.zip)">
-                    <svg ng-class="{active: active.location == location.zip}"><use xlink:href="#icon-checkmark"></use></svg>
+                <div class="settings__location-picker" ng-click="setActiveLocation(location.zip)">
+                    <i ng-class="{active: active.location === location.zip}" class="fa fa-check"></i>
                 </div>
 
+                <div class="settings__location-name">
+                    <span class="sln-name">
+                        {{ location.name }}
+                    </span>
+                    <span class="sln-coords">
+                        {{ location.zip }}
+                    </span>
+                </div>
+                
+                <div class="settings__location-remove">
+                    <i ng-click="removeLocation(location.zip)" class="fa fa-times"></i>
+                </div>
             </div>
-            
-            <div class="col-xs-9">
-                <span class="settings__name">
-                    {{ location.name }}
-                </span>
-                <span class="settings__coords">
-                    {{ location.zip }}
-                </span>
-            </div>
-            <div class="col-xs-2">
-                <i ng-click="removeLocation(location.zip)" class="glyphicon glyphicon-remove"></i>
-            </div>
-        </div><!-- location row -->
+        </div>
 
 
         <div class="row">
             
-            <div class="col-xs-12 col-md-6">
+            <div class="col-xs-12">
                 <h2>Store New Location</h2>
-                <input type="text" class="form-control" placeholder="Zip Code" ng-model="inputLocation" ng-required="true" />
+                <div class="input-group input-group-lg">
+                    <input type="text" class="form-control" placeholder="Zip Code" ng-model="inputLocation" ng-required="true" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" ng-click="addLocation()">Add Location</button>
+                    </span>
+                </div>
                 <span class="help-inline">{{ inputMessage }}</span>
-                <button class="pull-right btn btn-default" ng-click="addLocation()">Add Location</button>
             </div>
 
         </div>

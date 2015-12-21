@@ -3,35 +3,42 @@
     
 }
 
-.settings__coords {
-    font-size: 90%;
-    font-style: italic;
-}
-
 .settings__location {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid lighten($dark, 60%);
 }
-
-.settings__name {
-    display: block;
-    font-size: 200%;
-    font-weight: bold;
+.settings__location-row {
+    display: flex;
 }
-
-.settings__picker {
+.settings__location-picker {
     background-color: lighten($light, 20%);
     cursor: pointer;
-    padding: 1.0em;
+    font-size: 48px;
+    padding: 7px;
     text-align: center;
+}
+.settings__location-picker .active {
+    color: $green;
+}
 
-    svg {
-        fill: gray;
-        height: 42px;
-        width: 42px;
+.settings__location-name {
+    flex: 1;
+    padding: 0.5em 1.5em;
+
+    .sln-name {
+        display: block;
+        font-size: 200%;
+        font-weight: bold;
     }
-    
-    svg.active {
-        fill: green;
+    .sln-coords {
+        font-size: 90%;
+        font-style: italic;
     }
+}
+
+.settings__location-remove {
+    cursor: pointer;
+    font-size: 48px;
+    padding: 7px;
+    text-align: center;
 }
 
