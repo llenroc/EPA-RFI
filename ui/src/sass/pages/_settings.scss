@@ -32,6 +32,12 @@
     .sln-coords {
         font-size: 90%;
         font-style: italic;
+        
+        svg {
+            fill: #999;
+            height: 12px;
+            width: 12px;
+        }
     }
 }
 

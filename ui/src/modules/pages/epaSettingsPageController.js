@@ -91,7 +91,9 @@ module.exports = function(ngModule) {
             console.log('epaSettingsPageController initializing...');
             if (GeoService.supportsGeo()) {
                 $scope.showCurrent = true;
+                GeoService.updateLocation();
             }
+            $scope.GeoService = GeoService;
             refreshActive();
             refreshLocations();
         };

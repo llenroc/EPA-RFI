@@ -24,7 +24,13 @@
                         Current
                     </span>
                     <span class="sln-coords">
-                        39.9331, -84.1230
+                        <span ng-show="GeoService.loading">
+                            <svg class="spinner"><use xlink:href="#icon-spinner"></use></svg>
+                        </span>
+                        <span ng-hide="GeoService.loading">
+                            {{ GeoService.position.latitude }}, 
+                            {{ GeoService.position.longitude }}
+                        </span>
                     </span>
                 </div>
 
