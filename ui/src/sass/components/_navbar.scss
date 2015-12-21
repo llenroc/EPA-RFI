@@ -1,6 +1,5 @@
-
 $navbar-bg: transparent;
-$navbar-txt: #222;
+$navbar-txt: #999;
 
 .epanav {
 
@@ -18,8 +17,9 @@ $navbar-txt: #222;
         padding: 0.5em 0;
         margin-right: auto;
     }
-    
-    .settings {
+
+    i {
+        color: $navbar-txt;
     }
 
     // Large Tablets and Desktops
@@ -31,7 +31,6 @@ $navbar-txt: #222;
         }
 
         i {
-            color: #999;
             font-size: 42px;
         }
     }
@@ -45,7 +44,6 @@ $navbar-txt: #222;
         }
 
         i {
-            color: #999;
             font-size: 24px;
         }
     }
