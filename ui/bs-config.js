@@ -14,7 +14,8 @@
  */
 var proxy = require('http-proxy-middleware');
 var proxyOpts = {
-    target: 'http://localhost:3000'
+    target: 'http://tutum-79f231a3.cloudapp.net',
+    changeOrigin: true
 };
 
 module.exports = {
