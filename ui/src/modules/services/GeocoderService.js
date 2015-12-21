@@ -8,7 +8,7 @@ module.exports = function(ngModule) {
         this.identifyLocation = function(zipCode) {
             var deferred = $q.defer();
 
-            var url = `http://tutum-79f231a3.cloudapp.net/api/geocoder/${zipCode}`;
+            var url = `/api/geocoder/${zipCode}`;
             $http.get(url).then(function(response) {
                 console.log('Got an api response: ' + JSON.stringify(response));
                 if (typeof response.data !== 'undefined') {
