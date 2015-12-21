@@ -1,41 +1,50 @@
-<div class="mainpage">
 
-    <div class="container-fluid">
-        <!-- activity spinner -->
-        <div class="row">
-            <div class="col-xs-12 activity">
-                <div ng-show="GeoService.loading">
-                    <svg class="icon spinner"><use xlink:href="#icon-spinner"></use></svg>
+<div class="mainpage">
+    
+    <div class="status good">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6">
+                    <span class="date">12/21/2015</span>
+                    <span class="location">Beavercreek, OH</span>
+                </div>
+                <div class="col-xs-6 right">
+                    <span class="aqi good-txt">
+                        47
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="description good-desc">
+        <h2>Good</h2>
+        <p>Air Quality is considered good, and air pollution poses little or no risk.</p>
+    </div>
+
+
+    <div class="recommendations">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-xs-12">
+                    <h2>On Code Green days <span class="do">do</span>:</h2>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card">
+                        <p>
+                            Gather up your friends &amp; hit the HOV lane.
+                            Quality time with your crew while reducing
+                            emissions? We'd call that #squadgoals
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
         
-        <!-- status -->
-        <div class="row">
-            <div class="col-xs-12 indicator">
-
-                <svg class="quality"><use xlink:href="#icon-checkmark"></use></svg>
-                <p>
-                    {{ AirQualityService.data.quality.description }}
-                </p>
-            </div>
-        </div>
         
-        <!-- recommended activities -->
-        <div class="row">
-            <div class="col-xs-12">
-                Recommended:
-                {{ AirQualityService.data.activities.recommended }}
-            </div>
-        </div>
-        
-        <!-- hazardous activities -->
-        <div class="row">
-            <div class="col-xs-12">
-                Hazardous:
-                {{ AirQualityService.data.activities.hazardous }}
-            </div>
-        </div>
-    </div><!-- container-fluid -->
-
-</div><!-- mainpage -->
+    </div>
+</div>

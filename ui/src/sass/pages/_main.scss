@@ -6,17 +6,52 @@
 }
 
 .mainpage {
-    //align-items: center;
-    display: flex;
-    height: 90%;
-    //justify-content: top;
-    
-    .indicator {
-        
+
+    .container {
+        max-width: 768px;
+    }
+
+    .date, .location {
+        display: block;
+        font-size: 150%;
+        margin-bottom: 0.5em;
+    }
+
+    .aqi {
+        background: $txt_light;
+        border-radius: 50%;
+        display: inline;
+        font-size: 200%;
+        text-align: center;
+        width: 150px;
+        height: 150px;
+        padding: 0.5em;
+    }
+
+    .status, .description {
+        color: $txt_light;
+        margin: 0;
+        padding: 2.0em;
+    }
+
+    .description {
+        text-align: center;
+    }
+
+    .do {
+        color: $blue;
+        font-weight: bold;
+    }
+
+    .good {
+        background: $green;
     }
     
-    .indicator svg {
-        height: 250px;
+    .good-desc {
+        background: $green-dk;
+    }
+    .good-txt {
+        color: $green;
     }
 }
 
