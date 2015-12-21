@@ -1,0 +1,34 @@
+
+.colorbar {
+    display: flex;
+    height: 1.0em;
+    margin: 0.24em 0;
+    width: 100%;
+    
+    & > div {
+        width: 20%;
+        margin: 0 0.12em;
+    }
+    & > div:first-child {
+        margin-left: 0;
+    }
+    & > div:last-child {
+        margin-right: 0;
+    }
+    
+    .green {
+        background: $green;
+    }
+    .yellow {
+        background: $yellow;
+    }
+    .orange {
+        background: $orange;
+    }
+    .red {
+        background: $red;
+    }
+    .purple {
+        background: $purple;
+    }
+}
