@@ -43,6 +43,26 @@
         font-weight: bold;
     }
 
+    .card {
+        background: darken($light, 5%);
+        display: flex;
+        margin: 1.0em 0;
+
+        .card__text {
+            padding: 1.0em;
+            width: 70%;
+        }
+        .card__icon {
+            align-items: center;
+            background: $blue;
+            color: $light;
+            display: flex;
+            flex: 1;
+            font-size: 48px;
+            justify-content: center;
+        }
+    }
+
     .good {
         background: $green;
     }
