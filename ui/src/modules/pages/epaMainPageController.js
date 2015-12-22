@@ -8,18 +8,32 @@ module.exports = function(ngModule) {
     ngModule.controller('epaMainPageController', function($scope, AirQualityService, GeoService, StoredLocationsService) {
 
         var positionUpdated = function() {
-            console.log('position updated: ' + JSON.stringify($scope.GeoService.position));
-            if ($scope.GeoService.position !== null) {
-                AirQualityService.updateAirQuality(
-                    $scope.GeoService.position.latitude,
-                    $scope.GeoService.position.longitude
-                );
-            }
-        };
-
-        var activeLocationUpdated = function() {
             var location = StoredLocationsService.getActiveLocation();
-            console.log('location override set from settings: ' + JSON.stringify(location));
+
+
+            var position = {};
+            if (location === 'current') {
+                console.log('position updated: ' + JSON.stringify($scope.GeoService.position));
+                if ($scope.GeoService.position !== null) {
+                    position = {
+                        latitude: $scope.GeoService.position.latitude,
+                        longitude: $scope.GeoService.position.longitude
+                    };
+                }
+            }
+            else {
+                console.log('location override set from settings: ' + JSON.stringify(location));
+                position = {
+                    latitude: location.latitude,
+                    longitude: location.longitude
+                };
+            }
+
+            console.log(`getting data for location ${position.latitude}, ${position.longitude}`);
+            AirQualityService.updateAirQuality(
+                position.latitude,
+                position.longitude
+            );
         };
 
         var initialize = function() {
@@ -34,7 +48,7 @@ module.exports = function(ngModule) {
             GeoService.updateLocation();
 
             $scope.$watch('GeoService.position', positionUpdated);
-            $scope.$watch('StoredLocationsService.getActiveLocation', activeLocationUpdated);
+            $scope.$watch('StoredLocationsService.getActiveLocation', positionUpdated);
         };
 
         initialize();

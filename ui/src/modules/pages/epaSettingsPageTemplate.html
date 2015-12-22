@@ -40,7 +40,8 @@
         <!-- location -->
         <div class="row settings__location" ng-repeat="location in locations">
             <div class="settings__location-row">
-                <div class="settings__location-picker" ng-click="setActiveLocation(location.zip)">
+
+                <div class="settings__location-picker" ng-click="setActiveLocation(location)">
                     <i ng-class="{active: active.zip == location.zip}" class="fa fa-check"></i>
                 </div>
 
