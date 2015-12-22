@@ -63,7 +63,7 @@ module.exports = function(ngModule) {
                         console.log(`Location is invalid: ${response}`);
                     }
                 }, function (error) {
-                        console.log(`Error querying Geocoder server: ${error}`);
+                        console.log('Error querying Geocoder server', error);
                 }); // GeocoderService.identifyLocation
             }
             else {
