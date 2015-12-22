@@ -22,4 +22,19 @@ describe('LocationService', function() {
         expect(LocationService.storedLocations.length).toBe(0);
     });
 
+    it('should set active location correctly', function() {
+        var beverlyHills = {
+            name: 'Beverly Hills',
+            zip: 90210
+        };
+        var lasVegas = {
+            name: 'Las Vegas',
+            zip: 89109
+        };
+        LocationService.addLocation(beverlyHills);
+        LocationService.addLocation(lasVegas);
+        LocationService.setActiveLocation(beverlyHills);
+        expect(LocationService.activeLocation.name).toBe(beverlyHills.name);
+        expect(LocationService.activeLocation.zip).toBe(beverlyHills.zip);
+    });
 });

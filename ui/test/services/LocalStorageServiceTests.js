@@ -24,17 +24,4 @@ describe('LocalStorageService', function() {
         expect(retrievedValue.lastName).toBe('bar');
     });
 
-    it('should add created and updated dates', function() {
-        var obj = {
-            id: 5,
-            firstName: 'foo',
-            lastName: 'bar'
-        };
-        var key = 'test';
-        LocalStorageService.set(key, obj);
-        var retrievedValue = LocalStorageService.get(key);
-        expect(retrievedValue.created).toBeDefined();
-        expect(retrievedValue.updated).toBeDefined();
-    });
-
 });
