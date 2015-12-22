@@ -13,22 +13,28 @@ function AirQualityService() {
 
             if (body) {
                 if (body.length > 0) {
-                    var aqJson = body[0];
+                    for (var i=0; i < body.length; i++) {
+                        var element = body[i];
+                        if (element.ParameterName === 'O3') {
+                            // Grab first result and return formatted as desired JSON format.
+                            var airQualityResponse = {
+                                quality: { value: element.Category.Number, description: element.Category.Name, index: element.AQI, type: element.ParameterName },
+                                details:
+                                {
+                                    updated: element.DateObserved + (element.HourObserved < 10 ? '0' + element.HourObserved: element.HourObserved) + ':00 ' + element.LocalTimeZone,
+                                    location: element.ReportingArea + ', ' + element.StateCode
+                                },
+                                activities: {
+                                    recommended: [ 'walking', 'running', 'hiding' ],
+                                    hazardous: [ 'mowing', 'trimming', 'gardening' ]
+                                }
+                            };
 
-                    // Grab first result and return formatted as desired JSON format.
-                    var airQualityResponse = {
-                        quality: { value: aqJson.Category.Number, description: aqJson.Category.Name },
-                        details:
-                        {
-                            updated: aqJson.DateObserved + (aqJson.HourObserved < 10 ? '0' + aqJson.HourObserved: aqJson.HourObserved) + ':00 ' + aqJson.LocalTimeZone,
-                            location: aqJson.ReportingArea + ', ' + aqJson.StateCode
-                        },
-                        activities: {
-                            recommended: [ 'walking', 'running', 'hiding' ],
-                            hazardous: [ 'mowing', 'trimming', 'gardening' ]
+                            return callback(null, airQualityResponse);
                         }
-                    };
+                    }
 
+                    // If we have no O3 results, return null.
                     callback(null, airQualityResponse);
                 }
                 else {
