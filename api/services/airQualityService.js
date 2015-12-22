@@ -15,8 +15,8 @@ function AirQualityService() {
                 if (body.length > 0) {
                     for (var i=0; i < body.length; i++) {
                         var element = body[i];
+                        // Grab only the Ozone result for air quality.  Front end currently only processes one result.
                         if (element.ParameterName === 'O3') {
-                            // Grab first result and return formatted as desired JSON format.
                             var airQualityResponse = {
                                 quality: { value: element.Category.Number, description: element.Category.Name, index: element.AQI, type: element.ParameterName },
                                 details:
