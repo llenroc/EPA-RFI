@@ -1,5 +1,8 @@
 'use strict';
 
+var moment = require('moment');
+
+
 module.exports = function(ngModule) {
 
     ngModule.controller('epaMainPageController', function($scope, GeoService, AirQualityService) {
@@ -16,6 +19,8 @@ module.exports = function(ngModule) {
 
         var initialize = function() {
             console.log('epaMainPageController initializing...');
+
+            $scope.date = moment().format('MM/DD/YYYY');
 
             $scope.GeoService = GeoService;
             $scope.AirQualityService = AirQualityService;
