@@ -17,7 +17,10 @@
         </div>
     </div>
 
-    <ng-include src="'modules/components/descriptions/Good.html'" />
+    <ng-include ng-if="AirQualityService.airQuality.data.quality.value === 1" src="'modules/components/descriptions/Good.html'" />
+    <ng-include ng-if="AirQualityService.airQuality.data.quality.value === 2" src="'modules/components/descriptions/Moderate.html'" />
+    <ng-include ng-if="AirQualityService.airQuality.data.quality.value === 3" src="'modules/components/descriptions/Sensitive.html'" />
+    <ng-include ng-if="AirQualityService.airQuality.data.quality.value === 4" src="'modules/components/descriptions/Unhealthy.html'" />
+    <ng-include ng-if="AirQualityService.airQuality.data.quality.value === 5" src="'modules/components/descriptions/VeryUnhealthy.html'" />
 
-    </div>
 </div>
