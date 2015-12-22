@@ -10,12 +10,16 @@
 
 .Moderate {
     background: $yellow;
+    
+    .date, .location {
+        color: darken($yellow_dk, 20%);
+    }
 }
 .Moderate-desc {
     background: $yellow_dk;
 }
 .Moderate-txt {
-    color: $yellow;
+    color: darken($yellow_dk, 20%);
 }
 
 .Sensitive {
