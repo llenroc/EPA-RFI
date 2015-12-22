@@ -2,7 +2,7 @@
 
 module.exports = function(ngModule) {
 
-    ngModule.controller('epaNavbarController', function($scope) {
+    ngModule.controller('epaNavbarController', function($scope, $location) {
 
         $scope.toggle = function(flyoutId) {
             console.log(`Toggling ${flyoutId}`);
@@ -10,6 +10,10 @@ module.exports = function(ngModule) {
                 flyoutId = null;
             }
             $scope.activeFlyout = flyoutId;
+        };
+
+        $scope.isSettingsPage = function() {
+            return $location.path() === '/settings';
         };
 
         var initialize = function() {

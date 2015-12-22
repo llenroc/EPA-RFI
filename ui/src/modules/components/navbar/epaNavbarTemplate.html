@@ -9,7 +9,8 @@
             </div>
 
             <div class="settings">
-                <a class="epasettings" href="#/settings"><i class="glyphicon glyphicon-cog"></i></a>
+                <a class="epasettings" href="#/settings" ng-if="!isSettingsPage()"><i class="glyphicon glyphicon-cog"></i></a>
+                <a class="epasettings" href="#/" ng-if="isSettingsPage()"><i class="glyphicon glyphicon-arrow-left"></i></a>
             </div>
 
     </div>
