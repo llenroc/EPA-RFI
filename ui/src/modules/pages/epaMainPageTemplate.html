@@ -3,7 +3,7 @@
     <div class="loader" ng-hide="AirQualityService.airQuality">
         <svg class="spinner"><use xlink:href="#icon-spinner"></use></svg>
     </div>
-    <div class="status {{ AirQualityService.airQuality.data.quality.description }}" ng-show="AirQualityService.airQuality">
+    <div class="status quality_{{ AirQualityService.airQuality.data.quality.value }}" ng-show="AirQualityService.airQuality">
         <div class="container">
             <div class="row">
                 <div class="col-xs-6">
@@ -11,7 +11,7 @@
                     <span class="location">{{ AirQualityService.airQuality.data.details.location }}</span>
                 </div>
                 <div class="col-xs-6 right">
-                    <span class="aqi {{ AirQualityService.airQuality.data.quality.description }}-txt">{{ AirQualityService.airQuality.data.quality.index }}</span>
+                    <span class="aqi quality_{{ AirQualityService.airQuality.data.quality.value }}-txt">{{ AirQualityService.airQuality.data.quality.index }}</span>
                 </div>
             </div>
         </div>

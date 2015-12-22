@@ -1,53 +1,53 @@
-.Good {
+.quality_1 {
     background: $green;
 }
-.Good-desc {
+.quality_1-desc {
     background: $green_dk;
 }
-.Good-txt {
+.quality_1-txt {
     color: $green;
 }
 
-.Moderate {
+.quality_2 {
     background: $yellow;
     
     .date, .location {
         color: darken($yellow_dk, 20%);
     }
 }
-.Moderate-desc {
+.quality_2-desc {
     background: $yellow_dk;
 }
-.Moderate-txt {
+.quality_2-txt {
     color: darken($yellow_dk, 20%);
 }
 
-.Sensitive {
+.quality_3 {
     background: $orange;
 }
-.Sensitive-desc {
+.quality_3-desc {
     background: $orange_dk;
 }
-.Sensitive-txt {
+.quality_3-txt {
     color: $orange;
 }
 
-.Unhealthy {
+.quality_4 {
     background: $red;
 }
-.Unhealthy-desc {
+.quality_4-desc {
     background: $red_dk;
 }
-.Unhealthy-txt {
+.quality_4-desc-txt {
     color: $red;
 }
 
-.VeryUnhealthy {
+.quality_5 {
     background: $purple;
 }
-.VeryUnhealthy-desc {
+.quality_5-desc {
     background: $purple_dk;
 }
-.VeryUnhealthy-txt {
+.quality_5-txt {
     color: $purple;
 }
