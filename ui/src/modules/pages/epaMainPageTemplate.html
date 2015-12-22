@@ -1,15 +1,17 @@
 
 <div class="mainpage">
-    
-    <div class="status {{ AirQualityService.data.quality.description }}">
+    <div class="loader" ng-hide="AirQualityService.airQuality">
+        <svg class="spinner"><use xlink:href="#icon-spinner"></use></svg>
+    </div>
+    <div class="status {{ AirQualityService.airQuality.data.quality.description }}" ng-show="AirQualityService.airQuality">
         <div class="container">
             <div class="row">
                 <div class="col-xs-6">
                     <span class="date">{{ date }}</span>
-                    <span class="location">{{ AirQualityService.data.details.location }}</span>
+                    <span class="location">{{ AirQualityService.airQuality.data.details.location }}</span>
                 </div>
                 <div class="col-xs-6 right">
-                    <span class="aqi {{ AirQualityService.data.quality.description }}-txt">{{ AirQualityService.data.quality.index }}</span>
+                    <span class="aqi {{ AirQualityService.airQuality.data.quality.description }}-txt">{{ AirQualityService.airQuality.data.quality.index }}</span>
                 </div>
             </div>
         </div>

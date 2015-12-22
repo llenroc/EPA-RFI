@@ -3,70 +3,47 @@ var moment = require('moment');
 
 module.exports = function(ngModule) {
     
-    ngModule.service('GeoService', function($rootScope) {
-        
-        this.supported = false;
-        this.loading = false;
-        this.position = null;
+    ngModule.service('GeoService', function($q) {
 
         this.supportsGeo = function() {
             if (navigator.geolocation) {
-                console.log('Browser supports geolocation');
                 return true;
             }
-            console.log('Browser does not support geolocation');
             return false;
         };
 
-        this.updateLocation = function() {
+        this.getLocation = function() {
+            var deferred = $q.defer();
 
             var startTime = moment();
             var timeout = 10 * 1000; // convert to seconds
 
-            var svc = this;
-
             var gotLocation = function(position) {
                 var endTime = moment();
                 var duration = moment(endTime.diff(startTime)).format('mm:ss:SSS');
-                console.log('SettingsService.getLocation() took ' + duration);
-                svc.position = {
-                    latitude: position.coords.latitude,
-                    longitude: position.coords.longitude
-                };
-                svc.loading = false;
-
-                if (!$rootScope.$$phase) {
-                    $rootScope.$apply();
-                }
+                console.log('GeoService.getLocation() took ' + duration);
+                deferred.resolve({
+                    name: 'Current',
+                    latitude: position.coords.latitude.toFixed(2),
+                    longitude: position.coords.longitude.toFixed(2)
+                });
             };
             
             var noLocation = function() {
                 var endTime = moment();
                 var duration = moment(endTime.diff(startTime)).format('mm:ss:SSS');
-                console.log('SettingsService.getLocation() (no position) took ' + duration);
-                svc.loading = false;
-                // should we do this? geo might be down only temporarily...
-                svc.position = null;
-
-                if (!$rootScope.$$phase) {
-                    $rootScope.$apply();
-                }
+                console.log('GeoService.getLocation() (no position) took ' + duration);
+                deferred.resolve(null);
             };
 
             if (this.supportsGeo()) {
-                this.supported = true;
-                this.loading = true;
                 navigator.geolocation.getCurrentPosition(
                     gotLocation, 
                     noLocation, 
                     {timeout: timeout}
                 );
             }
-            else {
-                this.supported = false;
-                this.loading = false;
-            }
-
+            return deferred.promise;
         }; // getLocation
     });
 

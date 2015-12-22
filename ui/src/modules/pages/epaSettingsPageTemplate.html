@@ -16,7 +16,7 @@
             <div class="settings__location-row">
 
                 <div class="settings__location-picker" ng-click="setActiveLocation('current')">
-                    <i ng-class="{active: active === 'current'}" class="fa fa-check"></i>
+                    <i ng-class="{active: LocationService.activeLocation.name === 'Current'}" class="fa fa-check"></i>
                 </div>
 
                 <div class="settings__location-name">
@@ -24,12 +24,12 @@
                         Current
                     </span>
                     <span class="sln-coords">
-                        <span ng-show="GeoService.loading">
+                        <span ng-show="loading">
                             <svg class="spinner"><use xlink:href="#icon-spinner"></use></svg>
                         </span>
-                        <span ng-hide="GeoService.loading">
-                            {{ GeoService.position.latitude }}, 
-                            {{ GeoService.position.longitude }}
+                        <span ng-hide="loading">
+                            {{ current.latitude }}, 
+                            {{ current.longitude }}
                         </span>
                     </span>
                 </div>
@@ -38,11 +38,11 @@
         </div>
         
         <!-- location -->
-        <div class="row settings__location" ng-repeat="location in locations">
+        <div class="row settings__location" ng-repeat="location in LocationService.storedLocations">
             <div class="settings__location-row">
 
                 <div class="settings__location-picker" ng-click="setActiveLocation(location)">
-                    <i ng-class="{active: active.zip == location.zip}" class="fa fa-check"></i>
+                    <i ng-class="{active: LocationService.activeLocation.zip == location.zip}" class="fa fa-check"></i>
                 </div>
 
                 <div class="settings__location-name">
@@ -55,7 +55,7 @@
                 </div>
                 
                 <div class="settings__location-remove">
-                    <i ng-click="removeLocation(location.zip)" class="fa fa-times"></i>
+                    <i ng-click="removeLocation(location)" class="fa fa-times"></i>
                 </div>
             </div>
         </div>

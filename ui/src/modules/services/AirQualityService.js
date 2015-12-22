@@ -3,90 +3,70 @@ var moment = require('moment');
 
 module.exports = function(ngModule) {
 
-    ngModule.service('AirQualityService', function($http, $rootScope, LocalStorageService) {
+    ngModule.service('AirQualityService', function($http, LocalStorageService, LocationService) {
 
-        var LS_DATA_KEY = 'airquality_data';
+        var LS_DATA_KEY = 'airqualitydata';
 
-        this.data = null;
+        this.airQuality = null;
 
-        this.updateAirQuality = function(latitude, longitude, refresh) {
-            var localData = checkLocalStorage(latitude, longitude);
-            if (localData && !refresh)
-            {
-                this.data = localData;
+        this.updateAirQuality = function() {
+            var localData = LocalStorageService.get(LS_DATA_KEY);
 
-                if (!$rootScope.$$phase) {
-                    $rootScope.$apply();
-                }
+            // If we have local data that hasn't expired yet, show it while we
+            // update from the api
+            if (localData && localData !== this.data && !this.isExpired(localData)) {
+                console.log('Using local data for now...');
+                this.airQuality = localData;
+            }
 
+            // Make sure we have an active location before calling the api
+            if (LocationService.activeLocation === null || 
+                LocationService.activeLocation.latitude === null) {
+
+                var svc = this;
+                LocationService.getCurrentLocation(true).then(function() {
+                    svc.updateFromApi();
+                });
+            }
+            else {
+                // we have a valid location, call the service.
+                this.updateFromApi();
+            }
+        };
+
+        this.updateFromApi = function() {
+            if (LocationService.activeLocation === null || 
+                LocationService.activeLocation.latitude === null) {
+                console.log('AirQualityService.updateFromApi called with no location data!');
                 return;
             }
 
-            // Wasnt found in localStorage, go request it.
             var distance = 100;
-            var url = `/api/air-quality/lat-lon/${distance}/${latitude}/${longitude}`;
+            var lat = LocationService.activeLocation.latitude;
+            var lon = LocationService.activeLocation.longitude;
+            var url = `/api/air-quality/lat-lon/${distance}/${lat}/${lon}`;
             var svc = this;
             $http.get(url).then(function(response) {
-                console.log('Got an api response: ' + JSON.stringify(response));
-                if (typeof response.data !== 'undefined') {
-                    svc.data = response.data;
-                    updateLocalStorage(latitude, longitude, svc.data);
-                }
-                else {
-                    svc.data = null;
-                }
-
-                if (!$rootScope.$$phase) {
-                    $rootScope.$apply();
-                }
+                svc.storeData(response);
             });
         };
 
-
-
-        // airquality_data is stored for 2 hours using a key built from lat/lon at 2 decimal places
-        // '93.22,25.44': { updated: '...', data: {...} } (lat/lon ordering)
-
-        var checkLocalStorage = function(latitude, longitude) {
-            var d = LocalStorageService.get(LS_DATA_KEY);
-            if (typeof d === 'undefined' || d === null || d === '') {
-                console.log('No AirQuality data in local storage...');
-                return;
-            }
-
-            var key = latitude.toFixed(2) + ',' + longitude.toFixed(2);
-            if (d[key] && d[key] !== null && d[key] !== 'undefined')
-            {
-                var value = d[key];
-                var updated = new Date(value.updated);
-                var expired = moment().subtract(2, 'hours');
-                if (expired.isAfter(updated)) {
-                    console.log('Expiration [' + expired + '] is after [' + updated + ']');
-                    return;
-                }
-
-                // it's good!
-                console.log('Using LocalStorage data from ' + updated);
-
-                // Data is current in local storage
-                return value.data;
-            }
+        this.storeData = function(dataIn) {
+            console.log('Storing data: ' + JSON.stringify(dataIn));
+            this.airQuality = dataIn;
+            LocalStorageService.set(LS_DATA_KEY, dataIn);
         };
 
-        var updateLocalStorage = function(latitude, longitude, data) {
-            var d = LocalStorageService.get(LS_DATA_KEY);
-            if (typeof d === 'undefined' || d === null || d === '') {
-                console.log('No AirQuality data in local storage... initializing.');
-                d = {};
+        this.isExpired = function(dataIn) {
+            var updated = new Date(dataIn.updated);
+            var expired = moment().subtract(2, 'hours');
+            if (expired.isAfter(updated)) {
+                console.log('Expiration [' + expired + 
+                            '] is after [' + updated + ']');
+                return true;
             }
-
-            var key = latitude.toFixed(2) + ',' + longitude.toFixed(2);
-            d[key] = { updated: new Date(), data: data};
-
-            LocalStorageService.set(LS_DATA_KEY, d);
-
+            return false;
         };
-
     });
 
 };

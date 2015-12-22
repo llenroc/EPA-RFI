@@ -12,11 +12,11 @@ module.exports = function(ngModule) {
         };
 
         this.set = function(key, data) {
-            var now = new Date();
+            /*var now = new Date();
             if(!data.created) {
                 data.created = now;
             }
-            data.updated = now;
+            data.updated = now;*/
 
             localStorage.setItem(key, JSON.stringify(data));
         };

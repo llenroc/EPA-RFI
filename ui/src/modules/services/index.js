@@ -5,5 +5,5 @@ module.exports = function(ngModule) {
     require('./GeocoderService')(ngModule);
     require('./GeoService')(ngModule);
     require('./LocalStorageService')(ngModule);
-    require('./StoredLocationsService')(ngModule);
+    require('./LocationService')(ngModule);
 };

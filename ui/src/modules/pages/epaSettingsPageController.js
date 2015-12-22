@@ -2,9 +2,8 @@
 
 module.exports = function(ngModule) {
 
-    ngModule.controller('epaSettingsPageController', function($scope, AirQualityService, GeocoderService, GeoService, StoredLocationsService) {
+    ngModule.controller('epaSettingsPageController', function($scope, AirQualityService, GeocoderService, GeoService, LocationService) {
 
-        $scope.locations = [];
         $scope.showCurrent = false;
 
         var parseZipCode = function() {
@@ -30,30 +29,19 @@ module.exports = function(ngModule) {
             return false;
         };
 
-        var refreshLocations = function() {
-            $scope.locations = StoredLocationsService.getLocations();
-        };
-
-        var refreshActive = function() {
-            $scope.active = StoredLocationsService.getActiveLocation();
-            console.log('Active set to: ' + JSON.stringify($scope.active));
-            if ($scope.active.latitude && $scope.active.longitude) {
-                AirQualityService.updateAirQuality(
-                    $scope.active.latitude,
-                    $scope.active.longitude
-                );
+        $scope.setActiveLocation = function(location) {
+            if (location === 'current') {
+                LocationService.setActiveLocation({
+                    name: 'Current'
+                });
+            }
+            else {
+                LocationService.setActiveLocation(location);
             }
         };
 
-        $scope.setActiveLocation = function(location) {
-            StoredLocationsService.setActiveLocation(location);
-            refreshActive();
-        };
-
         $scope.removeLocation = function(location) {
-            console.log('Removing stored location ' + location);
-            StoredLocationsService.removeLocation(location);
-            refreshLocations();
+            LocationService.removeLocation(location);
         };
 
         $scope.addLocation = function() {
@@ -69,19 +57,14 @@ module.exports = function(ngModule) {
                             longitude: response.longitude,
                             zip: parseZipCode()
                         };
-                        StoredLocationsService.storeLocation(location);
-                        refreshLocations();
+                        LocationService.addLocation(location);
                     }
                     else {
                         console.log(`Location is invalid: ${response}`);
                     }
-                    },
-                    function (error) {
+                }, function (error) {
                         console.log(`Error querying Geocoder server: ${error}`);
-                    }
-                );
-
-
+                }); // GeocoderService.identifyLocation
             }
             else {
                 console.log('Location is invalid!');
@@ -90,13 +73,16 @@ module.exports = function(ngModule) {
 
         var initialize = function() {
             console.log('epaSettingsPageController initializing...');
+
             if (GeoService.supportsGeo()) {
                 $scope.showCurrent = true;
-                GeoService.updateLocation();
+                $scope.loading = true;
+                GeoService.getLocation().then(function(location) {
+                    $scope.current = location;
+                    $scope.loading = false;
+                });
             }
-            $scope.GeoService = GeoService;
-            refreshActive();
-            refreshLocations();
+            $scope.LocationService = LocationService;
         };
         initialize();
     });

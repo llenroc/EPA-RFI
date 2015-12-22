@@ -59,6 +59,19 @@
         }
     }
 
+    .loader {
+        background: $blue_dk;
+        display: flex;
+        justify-content: center;
+        padding: 2.0em;
+
+        svg {
+            fill: $blue;
+            height: 32px;
+            width: 32px;
+        }
+    }
+
 }
 
 
