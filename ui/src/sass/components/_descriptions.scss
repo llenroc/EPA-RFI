@@ -1,0 +1,49 @@
+.Good {
+    background: $green;
+}
+.Good-desc {
+    background: $green_dk;
+}
+.Good-txt {
+    color: $green;
+}
+
+.Moderate {
+    background: $yellow;
+}
+.Moderate-desc {
+    background: $yellow_dk;
+}
+.Moderate-txt {
+    color: $yellow;
+}
+
+.Sensitive {
+    background: $orange;
+}
+.Sensitive-desc {
+    background: $orange_dk;
+}
+.Sensitive-txt {
+    color: $orange;
+}
+
+.Unhealthy {
+    background: $red;
+}
+.Unhealthy-desc {
+    background: $red_dk;
+}
+.Unhealthy-txt {
+    color: $red;
+}
+
+.VeryUnhealthy {
+    background: $purple;
+}
+.VeryUnhealthy-desc {
+    background: $purple_dk;
+}
+.VeryUnhealthy-txt {
+    color: $purple;
+}
