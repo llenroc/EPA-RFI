@@ -20,9 +20,8 @@ module.exports = function(ngModule) {
             }
 
             // Make sure we have an active location before calling the api
-            if (LocationService.activeLocation === null || 
-                LocationService.activeLocation.latitude === null) {
-
+            if (!LocationService.activeLocation.latitude) {
+                console.log('Need to get position first...');
                 var svc = this;
                 LocationService.getCurrentLocation(true).then(function() {
                     svc.updateFromApi();
