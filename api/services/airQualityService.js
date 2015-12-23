@@ -13,29 +13,22 @@ function AirQualityService() {
 
             if (body) {
                 if (body.length > 0) {
-                    for (var i=0; i < body.length; i++) {
-                        var element = body[i];
-                        // Grab only the Ozone result for air quality.  Front end currently only processes one result.
-                        if (element.ParameterName === 'O3') {
-                            var airQualityResponse = {
-                                quality: { value: element.Category.Number, description: element.Category.Name, index: element.AQI, type: element.ParameterName },
-                                details:
-                                {
-                                    updated: element.DateObserved + (element.HourObserved < 10 ? '0' + element.HourObserved: element.HourObserved) + ':00 ' + element.LocalTimeZone,
-                                    location: element.ReportingArea + ', ' + element.StateCode
-                                },
-                                activities: {
-                                    recommended: [ 'walking', 'running', 'hiding' ],
-                                    hazardous: [ 'mowing', 'trimming', 'gardening' ]
-                                }
-                            };
-
-                            return callback(null, airQualityResponse);
+                    // Front end currently only processes one result.
+                    var element = body[0];
+                    var airQualityResponse = {
+                        quality: { value: element.Category.Number, description: element.Category.Name, index: element.AQI, type: element.ParameterName },
+                        details:
+                        {
+                            updated: element.DateObserved + (element.HourObserved < 10 ? '0' + element.HourObserved: element.HourObserved) + ':00 ' + element.LocalTimeZone,
+                            location: element.ReportingArea + ', ' + element.StateCode
+                        },
+                        activities: {
+                            recommended: [ 'walking', 'running', 'hiding' ],
+                            hazardous: [ 'mowing', 'trimming', 'gardening' ]
                         }
-                    }
+                    };
 
-                    // If we have no O3 results, return null.
-                    callback(null, airQualityResponse);
+                    return callback(null, airQualityResponse);
                 }
                 else {
                     // If we have no results return null.
