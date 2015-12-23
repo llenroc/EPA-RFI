@@ -1,12 +1,17 @@
-.container {
-    //max-width: 768px;
-}
-
 body {
 	background: #fff;
 	letter-spacing: normal;
 }
 
+.btn-primary {
+    background-color: $blue_dk;
+    border-color: darken($blue_dk, 10%);
+
+    &:hover {
+    	background-color: darken($blue_dk, 10%);
+    	border-color: darken($blue_dk, 20%);
+    }
+}
 
 // Headings 
 

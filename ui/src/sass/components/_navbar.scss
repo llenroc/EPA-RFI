@@ -20,6 +20,10 @@ $navbar-txt: #999;
 
     i {
         color: $navbar-txt;
+
+        &:hover {
+            color: darken($navbar-txt, 10%);
+        }
     }
 
     // Large Tablets and Desktops

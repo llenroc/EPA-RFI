@@ -2,11 +2,25 @@
 <div class="settingspage">
     
     <div class="container">
-        
         <div class="row">
             
             <div class="col-xs-12">
-                <h2><i class="glyphicon glyphicon-map-marker"></i> Locations</h2>
+                <h3>Store New Location</h3>
+                <div class="input-group input-group-lg">
+                    <input type="text" class="form-control" placeholder="Zip Code" ng-model="inputLocation" ng-required="true" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" ng-click="addLocation()">Add Location</button>
+                    </span>
+                </div>
+                <span class="help-inline">{{ inputMessage }}</span>
+            </div>
+
+        </div>
+        
+        <div class="row">
+            
+            <div class="col-xs-12 settings__location-heading">
+                <h2><span>My Locations</span></h2>
             </div>
 
         </div>
@@ -58,22 +72,6 @@
                     <i ng-click="removeLocation(location)" class="fa fa-times"></i>
                 </div>
             </div>
-        </div>
-
-
-        <div class="row">
-            
-            <div class="col-xs-12">
-                <h2>Store New Location</h2>
-                <div class="input-group input-group-lg">
-                    <input type="text" class="form-control" placeholder="Zip Code" ng-model="inputLocation" ng-required="true" />
-                    <span class="input-group-btn">
-                        <button class="btn btn-primary" ng-click="addLocation()">Add Location</button>
-                    </span>
-                </div>
-                <span class="help-inline">{{ inputMessage }}</span>
-            </div>
-
         </div>
 
     </div>
