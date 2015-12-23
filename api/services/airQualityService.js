@@ -2,6 +2,7 @@
 
 var request = require('request');
 var config = require('../config');
+var _ = require('lodash');
 
 function AirQualityService() {
     var pub = {},
@@ -13,8 +14,11 @@ function AirQualityService() {
 
             if (body) {
                 if (body.length > 0) {
+                    // Find the first value that has a valid AQI and category
                     // Front end currently only processes one result.
-                    var element = body[0];
+                    var element = _.find(body, function(obj) {
+                        return obj.AQI >= 0 && obj.Category && obj.Category.Number > 0 && obj.Category.Name;
+                    });
                     var airQualityResponse = {
                         quality: { value: element.Category.Number, description: element.Category.Name, index: element.AQI, type: element.ParameterName },
                         details:
