@@ -14,7 +14,7 @@ $navbar-txt: #999;
 
     .logo {
         display: none;
-        padding: 0.5em 0;
+        padding: .5em 0;
         margin-right: auto;
     }
 
@@ -28,6 +28,10 @@ $navbar-txt: #999;
 
         .epanav-large {
             display: inline-block;
+        }
+
+        .logo {
+            padding: 1.25em 0;
         }
 
         i {
@@ -48,3 +52,5 @@ $navbar-txt: #999;
         }
     }
 }
+
+
