@@ -17,10 +17,12 @@
         </div>
     </div>
 
-    <ng-include ng-if="AirQualityService.airQuality.data.quality.value === 1" src="'modules/components/descriptions/Good.html'" />
-    <ng-include ng-if="AirQualityService.airQuality.data.quality.value === 2" src="'modules/components/descriptions/Moderate.html'" />
-    <ng-include ng-if="AirQualityService.airQuality.data.quality.value === 3" src="'modules/components/descriptions/Sensitive.html'" />
-    <ng-include ng-if="AirQualityService.airQuality.data.quality.value === 4" src="'modules/components/descriptions/Unhealthy.html'" />
-    <ng-include ng-if="AirQualityService.airQuality.data.quality.value === 5" src="'modules/components/descriptions/VeryUnhealthy.html'" />
+    <ng-switch on="AirQualityService.airQuality.data.quality.value">
+        <div ng-switch-when="1"><ng-include src="'modules/components/descriptions/Good.html'" /></div>
+        <div ng-switch-when="2"><ng-include src="'modules/components/descriptions/Moderate.html'" /></div>
+        <div ng-switch-when="3"><ng-include src="'modules/components/descriptions/Sensitive.html'" /></div>
+        <div ng-switch-when="4"><ng-include src="'modules/components/descriptions/Unhealthy.html'" /></div>
+        <div ng-switch-when="5"><ng-include src="'modules/components/descriptions/VeryUnhealthy.html'" /></div>
+    </ng-switch>
 
 </div>
