@@ -41,6 +41,16 @@ module.exports = function(ngModule) {
         };
 
         $scope.removeLocation = function(location) {
+            var activeLocation = LocationService.activeLocation;
+            if(activeLocation === location) {
+                if($scope.showCurrent) {
+                    $scope.setActiveLocation('current');
+                }
+                else if(LocationService.storedLocations.length > 0)
+                {
+                    $scope.setActiveLocation(LocationService.storedLocations[0]);
+                }
+            }
             LocationService.removeLocation(location);
         };
 
