@@ -12,7 +12,7 @@ Our goal was to tackle an achievable prototype (MVP) that demonstrated our HCD, 
 
 Our team managed the product from start to finish on a public [Trello Board](https://trello.com/b/mnICIANW/epa-rfi-prototype-product).   The idea was utilize the Air Quality APIs/Data that EPA publishes to create a Minimum Viable Product, that is a product that we could create given the part time nature of the team and the holidays.
 
-We had an initial team of 10 to start this but because of workload and holidays there was really just a core team that worked on this for Sprint 1.  Product Manager – Jason McNutt, Scrum master – Christine Kofman, Tech Arch/Front end dev – Michael Bowman, Front/Back End Devs – Jon Meyer, Kyle Linden, Visual Designer/User Researcher – Shannon Gray, DevOps Engineer – Michael Mandeville
+We had an initial team of 10 to start this but because of workload and holidays there was really just a core team that worked on the product.  Product Manager – Jason McNutt, Scrum master – Christine Kofman, Tech Arch/Front end dev – Michael Bowman, Front/Back End Devs – Jon Meyer, Kyle Linden, Visual Designer/User Researcher – Shannon Gray, DevOps Engineer – Michael Mandeville
 
 Tech
 Front End - ES6 with WebPack, Angular/BootStrap/SASS/PostCSS
