@@ -8,9 +8,11 @@ The Applied Information Sciences team created a product named Daily Ozone (DO). 
 
 Approach
 
-Our team managed the product from start to finish on a public [Trello Board](https://trello.com/b/mnICIANW/epa-rfi-prototype-product) and came together to come up with a product idea by  Dec 11th.   The idea was utilize the Air Quality APIs/Data that EPA publishes to create a Minimum Viable Product, that is a product that we could create given the part time nature of the team and the holidays.
+Our goal was to tackle an achievable prototype (MVP) that demonstrated our HCD, Front end, back end, DevOps, Agile processes skillsets.  We did everything in the open from our planning, project management in the trello board to open github repo and docker hub repos as well.
 
-We had an initial team of 10 to start this but because of workload and holidays there was really just a core team that worked on this for Sprint 1.  Product Manager – Jason McNutt, Scrum master – Christine Kofman, Tech Arch/Front end dev – Michael Bowman, Front/Back End Devs – Jon Meyer, Kyle Linden, Visual Designer/User Researcher – Shannon Gray, DevOps Engineer – Michael Mandeville, other folks that assisted – Joe Funk, Ian Cillay and Allison Christman.
+Our team managed the product from start to finish on a public [Trello Board](https://trello.com/b/mnICIANW/epa-rfi-prototype-product).   The idea was utilize the Air Quality APIs/Data that EPA publishes to create a Minimum Viable Product, that is a product that we could create given the part time nature of the team and the holidays.
+
+We had an initial team of 10 to start this but because of workload and holidays there was really just a core team that worked on this for Sprint 1.  Product Manager – Jason McNutt, Scrum master – Christine Kofman, Tech Arch/Front end dev – Michael Bowman, Front/Back End Devs – Jon Meyer, Kyle Linden, Visual Designer/User Researcher – Shannon Gray, DevOps Engineer – Michael Mandeville
 
 Tech
 Front End - ES6 with WebPack, Angular/BootStrap/SASS/PostCSS
@@ -19,5 +21,5 @@ Packaging – NPM, gulp
 Testing – Mocha, jasmine, karma, should, nock, instanbul
 DevOps – Docker Containers in Docker Hub, Tutum (hosting of containers), Azure IaaS, Travis CI (Continuous Integration)
 
-Our goal was to tackle an achievable prototype (MVP) that demonstrated our HCD, Front end, back end, DevOps, Agile processes skillsets while utilizing container technology on Azure.  We did everything in the open from our planning, project management in the trello board to open github repo and docker hub repos as well.
+
 
