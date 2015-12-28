@@ -4,12 +4,10 @@ module.exports = function(ngModule) {
 
     ngModule.controller('epaNavbarController', function($scope, $location) {
 
-        $scope.toggle = function(flyoutId) {
-            console.log(`Toggling ${flyoutId}`);
-            if (flyoutId === $scope.activeFlyout) {
-                flyoutId = null;
-            }
-            $scope.activeFlyout = flyoutId;
+        $scope.indexVisible = false;
+
+        $scope.toggleIndex = function() {
+            $scope.indexVisible = !$scope.indexVisible;
         };
 
         $scope.isSettingsPage = function() {

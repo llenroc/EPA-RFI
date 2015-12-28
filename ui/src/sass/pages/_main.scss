@@ -27,14 +27,19 @@
     .description {
         color: $txt_light;
         margin: 0;
-        padding: 1em;
+        padding: 1.25em 0;
     }
 
     .description {
         text-align: center;
 
+        h2 {
+            margin-top: 0;
+        }
+
         p {
             font-size: 14px;
+            margin: 0;
         }
     }
 
@@ -44,10 +49,6 @@
     }
 
     .cards {
-        h2 {
-
-        }
-
         h3 {
             margin-top: 28px;
             margin-bottom: 20px;
@@ -71,7 +72,7 @@
             color: $txt_light;
             display: flex;
             flex: 1;
-            font-size: 36px;
+            font-size: 28px;
             justify-content: center;
         }
     }
@@ -154,7 +155,6 @@
     }
 }
 
-
 @media (min-width: 990px) {
     .row__activity {
         display: table;
@@ -173,15 +173,16 @@
 
             .card__text {
                 width: auto;
-                padding: 15px 115px 15px 15px;
+                padding: 15px 15px 15px 115px;
             }
 
             .card__icon {
                 position: absolute;
                 top: 0;
                 bottom: 0;
-                right: 0;
+                left: 0;
                 width: 100px;
+                font-size: 36px;
             }
         }
     }

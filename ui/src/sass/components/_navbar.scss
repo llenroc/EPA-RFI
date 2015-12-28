@@ -4,26 +4,19 @@ $navbar-txt: #999;
 .epanav {
 
     border-radius: 0;
-    margin-bottom: 7px;
+    margin-bottom: 0;
 
     .container {
         align-items: center;
         display: flex;
         justify-content: flex-end;
+        position: relative;
     }
 
     .logo {
         display: none;
         padding: .5em 0;
         margin-right: auto;
-    }
-
-    i {
-        color: $navbar-txt;
-
-        &:hover {
-            color: darken($navbar-txt, 10%);
-        }
     }
 
     // Large Tablets and Desktops
@@ -36,16 +29,19 @@ $navbar-txt: #999;
 
         .logo {
             padding: 1.25em 0;
-        }
+            //width: 200px;
 
-        i {
-            font-size: 42px;
+            img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+            }
         }
     }
 
     // Small Tablets and Phones
     @media screen and (max-width: $screen-md) {
-        height: 57px;
+        height: auto;
 
         .epanav-small {
             display: inline-block;

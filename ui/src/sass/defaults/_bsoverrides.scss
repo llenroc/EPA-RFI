@@ -6,11 +6,21 @@ body {
 .btn-primary {
     background-color: $blue_dk;
     border-color: darken($blue_dk, 10%);
+    border-radius: 2px;
 
     &:hover {
     	background-color: darken($blue_dk, 10%);
     	border-color: darken($blue_dk, 20%);
     }
+}
+
+.input-group-lg>.form-control {
+	border-radius: 2px;
+}
+
+.input-group-lg>.input-group-btn>.btn {
+	border-top-right-radius: 2px;
+	border-bottom-right-radius: 2px;
 }
 
 // Headings 

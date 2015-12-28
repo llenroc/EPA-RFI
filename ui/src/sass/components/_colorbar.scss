@@ -1,21 +1,23 @@
 
 .colorbar {
     display: flex;
-    height: 1.5em;
-    margin: 0.24em 0;
+    height: 0.9375em;
+    margin: 0.125em 0;
     width: 100%;
     
     & > div {
-        width: 20%;
-        margin: 0 0.12em;
+        width: 16.6666667%;
+        //margin: 0 0.0625em;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
     }
-    & > div:first-child {
-        margin-left: 0;
-    }
-    & > div:last-child {
-        margin-right: 0;
-    }
-    
+
     .green {
         background: $green;
     }
@@ -30,5 +32,19 @@
     }
     .purple {
         background: $purple;
+    }
+    .maroon {
+        background: $maroon;
+    }
+}
+
+@media (min-width: 768px) {
+    .colorbar {
+        height: 1.875em;
+        margin: 0.25em 0;
+
+        & > div {
+            //margin: 0 0.125em;
+        }
     }
 }

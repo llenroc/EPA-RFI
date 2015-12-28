@@ -9,9 +9,107 @@
             </div>
 
             <div class="settings">
-                <a class="epasettings" href="#/settings" ng-if="!isSettingsPage()"><i class="glyphicon glyphicon-cog"></i></a>
-                <a class="epasettings" href="#/" ng-if="isSettingsPage()"><i class="glyphicon glyphicon-home"></i></a>
+                <ul>
+                    <li>
+                        <div>
+                            <a class="show-index" ng-click="toggleIndex()"><i class="fa fa-info-circle"></i><span>Index</span></a>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="epasettings" href="#/settings" ng-if="!isSettingsPage()"><i class="fa fa-map-marker"></i><span>Locations</span></a>
+                        <a class="epasettings" href="#/" ng-if="isSettingsPage()"><i class="fa fa-home"></i><span>Home</span></a>
+                    </li>
+                </ul>
             </div>
-
     </div>
 </nav>
+
+<div class="colorbar">
+    <div class="green"></div>
+    <div class="yellow"></div>
+    <div class="orange"></div>
+    <div class="red"></div>
+    <div class="purple"></div>
+    <div class="maroon"></div>
+</div>
+
+<div class="aqi-index" ng-show="indexVisible">
+    <div class="aqi-index__1">
+        <div class="container">
+            <div class="category">
+                <p>Good</p>
+            </div>
+            <div class="value">
+                <p>0 to 50</p>
+            </div>
+            <div class="meaning">
+                <p>Air quality is considered satisfactory, and air pollution poses little or no risk.</p>
+            </div>
+        </div>
+    </div>
+    <div class="aqi-index__2">
+        <div class="container">
+            <div class="category">
+                <p>Moderate</p>
+            </div>
+            <div class="value">
+                <p>51 to 100</p>
+            </div>
+            <div class="meaning">
+                <p>Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very small number of people who are unusually sensitive to air pollution.</p>
+            </div>
+        </div>
+    </div>
+    <div class="aqi-index__3">
+        <div class="container">
+            <div class="category">
+                <p>Unhealthy for Sensitive Groups</p>
+            </div>
+            <div class="value">
+                <p>101 to 150</p>
+            </div>
+            <div class="meaning">
+                <p>Members of sensitive groups may experience health effects. The general public is not likely to be affected.</p>
+            </div>
+        </div>
+    </div>
+    <div class="aqi-index__4">
+        <div class="container">
+            <div class="category">
+                <p>Unhealthy</p>
+            </div>
+            <div class="value">
+                <p>151 to 200</p>
+            </div>
+            <div class="meaning">
+                <p>Everyone may begin to experience health effects; members of sensitive groups may experience more serious health effects.</p>
+            </div>
+        </div>
+    </div>
+    <div class="aqi-index__5">
+        <div class="container">
+            <div class="category">
+                <p>Very Unhealthy</p>
+            </div>
+            <div class="value">
+                <p>201 to 300</p>
+            </div>
+            <div class="meaning">
+                <p>Health warnings of emergency conditions. The entire population is more likely to be affected.</p>
+            </div>
+        </div>
+    </div>
+    <div class="aqi-index__6">
+        <div class="container">
+            <div class="category">
+                <p>Hazardous</p>
+            </div>
+            <div class="value">
+                <p>301 to 500</p>
+            </div>
+            <div class="meaning">
+                <p>Health alert: everyone may experience more serious health effects.</p>
+            </div>
+        </div>
+    </div>
+</div>
