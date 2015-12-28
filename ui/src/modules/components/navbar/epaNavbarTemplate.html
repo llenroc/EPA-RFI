@@ -9,9 +9,17 @@
             </div>
 
             <div class="settings">
-                <a class="epasettings" href="#/settings" ng-if="!isSettingsPage()"><i class="glyphicon glyphicon-cog"></i></a>
-                <a class="epasettings" href="#/" ng-if="isSettingsPage()"><i class="glyphicon glyphicon-home"></i></a>
+                <ul>
+                    <li>
+                        <div>
+                            <a class="show-index"><i class="fa fa-info-circle"></i><span>Index</span></a>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="epasettings" href="#/settings" ng-if="!isSettingsPage()"><i class="fa fa-map-marker"></i><span>Locations</span></a>
+                        <a class="epasettings" href="#/" ng-if="isSettingsPage()"><i class="fa fa-home"></i><span>Home</span></a>
+                    </li>
+                </ul>
             </div>
-
     </div>
 </nav>

@@ -10,16 +10,12 @@
 
 .quality_2 {
     background: $yellow;
-    
-    .date, .location {
-        color: darken($yellow_dk, 20%);
-    }
 }
 .quality_2-desc {
     background: $yellow_dk;
 }
 .quality_2-txt {
-    color: darken($yellow_dk, 20%);
+    color: $yellow;
 }
 
 .quality_3 {
@@ -50,4 +46,14 @@
 }
 .quality_5-txt {
     color: $purple;
+}
+
+.quality_6 {
+    background: $maroon;
+}
+.quality_6-desc {
+    background: $maroon_dk;
+}
+.quality_6-txt {
+    color: $maroon;
 }

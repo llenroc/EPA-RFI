@@ -1,0 +1,199 @@
+// AQI Index
+.aqi-index {
+    display: none;
+    margin-bottom: 0.25em;
+    position: relative;
+
+    p {
+        margin: 0;
+    }
+
+    [class*="aqi-index__"] {
+        display: inline-block;
+        width: 200px;
+        vertical-align: top;
+        white-space: normal;
+    }
+
+    .category,
+    .value,
+    .meaning {
+        color: #fff;
+    }
+
+    .aqi-index__1 {
+        background: $green;
+    }
+
+    .aqi-index__2 {
+        background: $yellow;
+    }
+
+    .aqi-index__3 {
+        background: $orange;
+    }
+
+    .aqi-index__4 {
+        background: $red;
+    }
+
+    .aqi-index__5 {
+        background: $purple;
+    }
+
+    .aqi-index__6 {
+        background: $maroon;
+    }
+}
+
+@media (max-width: 767px) {
+    .aqi-index {
+        width: auto;
+        white-space: nowrap;
+        overflow-x: auto;
+
+        .category {
+            padding: 15px 0 7.5px;
+            border-bottom: 1px solid #fff;
+        }
+
+        .value {
+            padding: 7.5px 0;
+            border-bottom: 1px solid #fff;
+        }
+
+        .meaning {
+            padding: 7.5px 0 15px;
+        }
+   
+
+        .aqi-index__1 {
+            &:before {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 200px;
+                top: 0;
+                bottom: 0;
+                background: $green;
+                z-index: -1;
+            }
+        }
+
+        .aqi-index__2 {
+            &:before {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 200px;
+                top: 0;
+                bottom: 0;
+                background: $yellow;
+                z-index: -1;
+            }
+        }
+
+        .aqi-index__3 {
+            &:before {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 200px;
+                top: 0;
+                bottom: 0;
+                background: $orange;
+                z-index: -1;
+            }
+        }
+
+        .aqi-index__4 {
+            &:before {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 200px;
+                top: 0;
+                bottom: 0;
+                background: $red;
+                z-index: -1;
+            }
+        }
+
+        .aqi-index__5 {
+            &:before {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 200px;
+                top: 0;
+                bottom: 0;
+                background: $purple;
+                z-index: -1;
+            }
+        }
+
+        .aqi-index__6 {
+            &:before {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 200px;
+                top: 0;
+                bottom: 0;
+                background: $maroon;
+                z-index: -1;
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .aqi-index {
+        width: 100%;
+
+        [class*="aqi-index__"] {
+            display: table;
+            width: 100%;
+            border-top: 2px solid white;
+
+            &:first-of-type {
+                border: 0;
+            }
+
+            .container {
+                > div {
+                    &:first-child {
+                        border-left: 0;
+                    }
+
+                    &:last-child {
+                        border-right: 0;
+                    }
+                }
+            }
+        }
+
+        .category,
+        .value,
+        .meaning {
+            display: table-cell;
+            color: #fff;
+            border-left: 1px solid #fff;
+            border-right: 1px solid #fff;
+        }
+
+        .category {
+            padding: 15px;
+            width: 200px;
+        }
+
+        .value {
+            padding: 15px;
+            width: 102px;
+        }
+
+        .meaning {
+            padding: 15px;
+        }
+    }
+}
