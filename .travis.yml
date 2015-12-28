@@ -25,7 +25,6 @@ script:
 # Stop and clean up DB container
 - docker stop db
 - docker rm db
-sudo: required
 after_success:
 - docker tag aisdockerhubeparfi/api:latest aisdockerhubeparfi/api:v1
 - docker push aisdockerhubeparfi/api
@@ -33,3 +32,6 @@ after_success:
 - docker push aisdockerhubeparfi/geocoder
 - docker tag aisdockerhubeparfi/ui:latest aisdockerhubeparfi/ui:v1
 - docker push aisdockerhubeparfi/ui
+branches:
+  only:
+    - master
