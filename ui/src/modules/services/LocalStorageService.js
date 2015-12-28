@@ -18,7 +18,7 @@ module.exports = function(ngModule) {
             }
             data.updated = now;*/
 
-            localStorage.setItem(key, JSON.stringify(data));
+            localStorage.setItem(key, angular.toJson(data));
         };
 
         this.remove = function(key) {
