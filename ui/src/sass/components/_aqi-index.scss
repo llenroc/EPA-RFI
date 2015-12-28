@@ -1,8 +1,10 @@
 // AQI Index
 .aqi-index {
-    display: none;
     margin-bottom: 0.25em;
+    max-height: 750px;
+    overflow: hidden;
     position: relative;
+    transition: all linear 0.25s;
 
     p {
         margin: 0;
@@ -44,6 +46,9 @@
     .aqi-index__6 {
         background: $maroon;
     }
+}
+.aqi-index.ng-hide {
+    max-height: 0;
 }
 
 @media (max-width: 767px) {
