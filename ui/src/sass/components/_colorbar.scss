@@ -3,6 +3,7 @@
     display: flex;
     height: 0.9375em;
     margin: 0.125em 0;
+    transition: all linear 0.15s;
     width: 100%;
     
     & > div {
@@ -36,6 +37,9 @@
     .maroon {
         background: $maroon;
     }
+}
+.colorbar.ng-hide {
+    height: 0;
 }
 
 @media (min-width: 768px) {
