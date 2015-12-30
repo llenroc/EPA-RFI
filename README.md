@@ -31,22 +31,23 @@ The DO prototype demonstrates AIS’s skills in Human Centric Design, DevOps, an
 
 The design included a clean and distinctive brand for the product, incorporating the pre-established color-coded system for AQI.  The application uses a simple layout, grouping information and presenting it to users in an easy-to-follow structure.  Typography was used to help establish a visual hierarchy throughout the layout.  The tooling, the techniques employed, and the benefits of the design include:
 
-•	Front End (ES6 with WebPack, Angular/BootStrap/SASS/PostCSS)
-o	Latest JavaScript language version and backwards compatibility
-o	HTML5 APIs for responsiveness
-o	SASS with Bootstrap provided prebuilt components
-o	Local Storage API to cache results
-•	Back End(NodeJS/Hapi Packaging NPM, gulp)
-o	NodeJS with hapi.js for the web server and Joi providing the web service and validation framework
-o	PostgreSQL wrapped in a Docker image 
-o	A tailored service interface to the AirNow API allowed for consumption by the front end
-•	Testing (Mocha, Jasmine, Karma, Should, Nock, Instanbul)
-o	Service code and Joi validation was tested using mocha
-o	Mocking performed through Nock guaranteeing repeatable testing
-•	DevOps (Docker containers in Docker Hub, Tutum, Azure IaaS, Travis CI)
-o	Travis CI hook triggered building the application into Docker containers
-o	Automated testing was executed
-o	Post push to Docker Hub, a web hook from Tutum is triggered providing a central deployment hub to the Microsoft Azure IaaS host
+* Front End (ES6 with WebPack, Angular/BootStrap/SASS/PostCSS)
+  * Latest JavaScript language version and backwards compatibility
+  * HTML5 APIs for responsiveness
+  * SASS with Bootstrap provided prebuilt components
+  * Local Storage API to cache results
+* Back End(NodeJS/Hapi Packaging NPM, gulp)
+  * NodeJS with hapi.js for the web server and Joi providing the web service and validation framework
+  * PostgreSQL wrapped in a Docker image 
+  * A tailored service interface to the AirNow API allowed for consumption by the front end
+* Testing (Mocha, Jasmine, Karma, Should, Nock, Instanbul)
+  * Service code and Joi validation was tested using mocha
+  * Mocking performed through Nock guaranteeing repeatable testing
+* DevOps (Docker containers in Docker Hub, Tutum, Azure IaaS, Travis CI)
+  * Travis CI hook triggered building the application into Docker containers
+  * Automated testing was executed
+  * Post push to Docker Hub, a web hook from Tutum is triggered providing a central deployment hub to the Microsoft Azure IaaS host
+
 
 ###Past Performances
 
