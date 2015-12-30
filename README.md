@@ -21,7 +21,7 @@
 
 ###Product
 
-For the EPA-EDS RFI, AIS created the Daily Ozone (DO) prototype.  DO helps citizens plan their daily activities in an environmentally friendly way by highlighting safe outdoor activities in response to the Air Quality Index (AQI). Our project goals included: 1) Determining user’s location and providing the current day’s AQI, 2) Providing a list of activities citizens can safely do based on their location, and 3) allowing users to store various locations without having to login or create an account.
+For the EPA-EDS RFI, AIS created the [Daily Ozone (DO) prototype](http://tutum-79f231a3.cloudapp.net/).  DO helps citizens plan their daily activities in an environmentally friendly way by highlighting safe outdoor activities in response to the Air Quality Index (AQI). Our project goals included: 1) Determining user’s location and providing the current day’s AQI, 2) Providing a list of activities citizens can safely do based on their location, and 3) allowing users to store various locations without having to login or create an account.
 
 ###Approach
 
