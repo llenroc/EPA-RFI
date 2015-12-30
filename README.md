@@ -25,11 +25,11 @@ For the EPA-EDS RFI, AIS created the Daily Ozone (DO) prototype.  DO helps citiz
 
 ###Approach
 
-The DO prototype demonstrates AIS’s skills in Human Centric Design, DevOps, and Agile development. DO development work was done in the open (ex. project management in the Trello board, open github repos).  We performed marketplace analysis, personas, and heuristic evaluations, all of which drove application functionality. Following Agile principles, we completed one sprint, gathered feedback from users, and recorded findings as user stories for subsequent sprints.
+The DO prototype demonstrates AIS’s skills in Human Centric Design, DevOps, and Agile development. DO development work was done in the open (ex. project management in the [Trello board](https://trello.com/b/mnICIANW/epa-rfi-prototype-product), open github repos).  We performed [competitive analysis](https://github.com/AppliedIS/EPA-RFI/blob/master/docs/DailyOzone-Competitive%20Analysis.pdf), [personas](https://github.com/AppliedIS/EPA-RFI/blob/master/docs/DailyOzone-UserPersonas-A.jpg), and [heuristic evaluations](https://github.com/AppliedIS/EPA-RFI/blob/master/docs/DailyOzone-HeuristicEvaluation_AirNow.pdf), all of which drove application functionality. Following Agile principles, we completed one sprint, gathered feedback from users, and recorded findings as user stories for subsequent sprints.
 
 ###Design
 
-The design included a clean and distinctive brand for the product, incorporating the pre-established color-coded system for AQI.  The application uses a simple layout, grouping information and presenting it to users in an easy-to-follow structure.  Typography was used to help establish a visual hierarchy throughout the layout.  The tooling, the techniques employed, and the benefits of the design include:
+The design included a clean and distinctive brand for the product, incorporating the pre-established [color-coded system for AQI](http://airnow.gov/index.cfm?action=aqibasics.aqi).  The application uses a simple layout, grouping information and presenting it to users in an easy-to-follow structure.  Typography was used to help establish a visual hierarchy throughout the layout.  The tooling, the techniques employed, and the benefits of the design include:
 
 * Front End (ES6 with WebPack, Angular/BootStrap/SASS/PostCSS)
   * Latest JavaScript language version and backwards compatibility
