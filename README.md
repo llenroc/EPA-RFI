@@ -10,14 +10,14 @@
 4.	Jason McNutt
 5.	Jason.McNutt@appliedis.com
 6.	For this scenario, AIS would propose labor categories similar to what we proposed on GSA’s Agile Delivery Services BPA, which AIS was an awardee:
-a.	Product Manager
-b.	Scrum Master
-c.	Technical Architect
-d.	Front-End Developer
-e.	Back-End Developer
-f.	DevOps Engineer
-g.	Visual Designer
-h.	User Researcher/Usability Tester
+1.  Product Manager
+2.  Scrum Master
+3.  Technical Architect
+4.  Front-End Developer
+5.  Back-End Developer
+6.  DevOps Engineer
+7.  Visual Designer
+8.  User Researcher/Usability Tester
 
 ###Product
 
