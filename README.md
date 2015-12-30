@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/AppliedIS/EPA-RFI.svg)](https://travis-ci.org/AppliedIS/EPA-RFI)
 
 
-1.	Applied Information Sciences (AIS)
+1.	[Applied Information Sciences (AIS)](http://www.appliedis.com/)
 2.	GS-35F-0279P
 3.	Other than small business    
 4.	Jason McNutt
@@ -52,9 +52,9 @@ The design included a clean and distinctive brand for the product, incorporating
 ###Past Performances
 
 AIS performs similar work with other federal agencies including:
-•	FBI – Agile Custom Development (Laura Mabe, Laura.Mabe@ic.fbi.gov)
-•	US Treasury – SharePoint Agile Development (James Graham, James.Graham@treasury.gov)
-•	DoD Office of the Undersecretary of Defense for Policy – Enterprise IT Support (Christine Murphy, christine.r.murphy.civ@mail.mil)
+* FBI – Agile Custom Development (Laura Mabe, Laura.Mabe@ic.fbi.gov)
+* US Treasury – SharePoint Agile Development (James Graham, James.Graham@treasury.gov)
+* DoD Office of the Undersecretary of Defense for Policy – Enterprise IT Support (Christine Murphy, christine.r.murphy.civ@mail.mil)
 
 
 
