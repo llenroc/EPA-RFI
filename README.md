@@ -18,12 +18,19 @@ e.	Back-End Developer
 f.	DevOps Engineer
 g.	Visual Designer
 h.	User Researcher/Usability Tester
-Product
+
+###Product
+
 For the EPA-EDS RFI, AIS created the Daily Ozone (DO) prototype.  DO helps citizens plan their daily activities in an environmentally friendly way by highlighting safe outdoor activities in response to the Air Quality Index (AQI). Our project goals included: 1) Determining user’s location and providing the current day’s AQI, 2) Providing a list of activities citizens can safely do based on their location, and 3) allowing users to store various locations without having to login or create an account.
-Approach
+
+###Approach
+
 The DO prototype demonstrates AIS’s skills in Human Centric Design, DevOps, and Agile development. DO development work was done in the open (ex. project management in the Trello board, open github repos).  We performed marketplace analysis, personas, and heuristic evaluations, all of which drove application functionality. Following Agile principles, we completed one sprint, gathered feedback from users, and recorded findings as user stories for subsequent sprints.
-Design
+
+###Design
+
 The design included a clean and distinctive brand for the product, incorporating the pre-established color-coded system for AQI.  The application uses a simple layout, grouping information and presenting it to users in an easy-to-follow structure.  Typography was used to help establish a visual hierarchy throughout the layout.  The tooling, the techniques employed, and the benefits of the design include:
+
 •	Front End (ES6 with WebPack, Angular/BootStrap/SASS/PostCSS)
 o	Latest JavaScript language version and backwards compatibility
 o	HTML5 APIs for responsiveness
@@ -40,7 +47,9 @@ o	Mocking performed through Nock guaranteeing repeatable testing
 o	Travis CI hook triggered building the application into Docker containers
 o	Automated testing was executed
 o	Post push to Docker Hub, a web hook from Tutum is triggered providing a central deployment hub to the Microsoft Azure IaaS host
-Past Performances
+
+###Past Performances
+
 AIS performs similar work with other federal agencies including:
 •	FBI – Agile Custom Development (Laura Mabe, Laura.Mabe@ic.fbi.gov)
 •	US Treasury – SharePoint Agile Development (James Graham, James.Graham@treasury.gov)
